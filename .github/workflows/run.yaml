@@ -1,0 +1,25 @@
+name: Convert Markdown into PDF
+on: [push]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Convert Markdown into PDF
+        uses: KoharaKazuya/marp-cli-action@v2
+        with:
+          config-file: ./.marprc-ci.yml
+
+      - name: Save outputs
+        uses: actions/upload-artifact@v4
+        with:
+          name: marp_output
+          path: ./output2
+
+
+      - uses: snow-actions/line-notify@v1.1.0
+        with:
+          access_token: ${{ secrets.SECRET_LINE_NOTIFY_API_TOKEN }}
+          message: Pushしましたぞう！
