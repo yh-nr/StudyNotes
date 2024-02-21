@@ -1,7 +1,7 @@
 lang: ja-JP
 allowLocalFiles: true
 theme: styles/A4-Manual.css
-inputDir: ./pub
+inputDir: ./src
 output: ./output2
 pdf: true
 html: true
