@@ -22,7 +22,7 @@ jobs:
       - uses: snow-actions/line-notify@v1.1.0
         with:
           access_token: ${{ secrets.SECRET_LINE_NOTIFY_API_TOKEN }}
-          message: Pushしましたぞう！!!
+          message: Pushしましたぞう！！！！
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
