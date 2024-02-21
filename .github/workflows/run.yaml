@@ -24,8 +24,9 @@ jobs:
           access_token: ${{ secrets.SECRET_LINE_NOTIFY_API_TOKEN }}
           message: Pushしましたぞう！!!
 
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.MY_PERSONAL_TOKEN }}
           publish_dir: ./output2
