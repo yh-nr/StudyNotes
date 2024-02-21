@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>E資格勉強会231112 copy.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h2 id="%E9%BB%92%E6%9C%AC13%E7%AB%A0-%E5%95%8F6-%E7%89%A9%E4%BD%93%E6%A4%9C%E5%87%BA%E3%81%AB%E9%96%A2%E3%81%99%E3%82%8B%E5%95%8F%E9%A1%8C">黒本13章 問6 物体検出に関する問題</h2>
+<!-- ___◆問題___ -->
+<p><img src="image-61.png" alt="Alt text"></p>
+<p><u>物体検出とは</u></p>
+<p>ある画像中における</p>
+<ul>
+<li>物体の位置</li>
+<li>その物体に対応するクラス</li>
+</ul>
+<p>を予測する。</p>
+<p><u>物体検出における教師データ</u></p>
+<ul>
+<li><strong>（ア）物体が含まれる矩形領域</strong>を示すバウンディングボックス(正解はA)</li>
+<li>その物体に対応するクラス</li>
+</ul>
+<p><u>１つの物体に複数のバウンディングボックスが検出された場合に、バウンディングボックスを１つに限定する処理</u></p>
+<ul>
+<li><strong>（イ）非最大値抑制 (non-maximum suppression)</strong>(正解はA)</li>
+</ul>
+<p><u>IoU　バウンディングボックスの一致度を測る指標</u></p>
+<p>式
+<img src="image-40.png" alt="Alt text"></p>
+<p>わかり易い図<br>
+<img src="image-39.png" alt="Alt text"></p>
+<p><a href="https://qiita.com/shoku-pan/items/35eae224c59989957623">物体検出の評価指標IoUの計算方法</a></p>
+<p>（ウ）の計算<br>
+<img src="image-41.png" alt="Alt text"></p>
+<!-- $$ IoU =\frac{共通領域の面積}{２つの領域の和集合の面積}=\frac{150 \times 200}{(300\times400)+(300\times400)-(150 \times 200)} = 0.14 $$ -->
+<p><img src="image-62.png" alt="Alt text">
+正解はB</p>
+<p><u>AP クラスの一致度を測る指標</u></p>
+<p><img src="image-49.png" alt="Alt text"></p>
+<p><img src="image-50.png" alt="Alt text"></p>
+<p><img src="image-51.png" alt="Alt text"></p>
+<p>（エ）の計算<br>
+<img src="image-52.png" alt="Alt text"></p>
+<!-- ![Alt text](image-13.png)
+![Alt text](image-12.png)
+![Alt text](image-11.png) -->
+<!-- ___◆解答___
+
+![Alt text](image-24.png)
+![Alt text](image-25.png)
+![Alt text](image-26.png)
+![Alt text](image-27.png) -->
+<div style="page-break-before:always"></div>
+<h2 id="%E9%BB%92%E6%9C%AC13%E7%AB%A0-%E5%95%8F7">黒本13章 問7</h2>
+<p><em><strong>◆問題</strong></em></p>
+<!-- ![Alt text](image-10.png) -->
+<p><img src="image-45.png" alt="Alt text"></p>
+<ol>
+<li>R-CNN (Region-Based Convolutional Neural Network):<br>
+R-CNNは、物体検出の初期の試みの1つで、以下の手順で動作します。
+画像から候補領域（region proposal）を生成するアルゴリズム（通常はSelective Search）を使用して、検出対象の領域を候補として抽出します。
+各候補領域を切り抜き、リサイズして固定サイズの入力画像に変換します。
+CNNを使用して、各候補領域に対して特徴抽出を行し、それらの特徴を分類するためのSVM（Support Vector Machine）を使用して物体のクラスを予測します。<br>
+（ア）の正解：<br>
+<img src="image-47.png" alt="Alt text"></li>
+</ol>
+<ul>
+<li>R-CNNは物体検出の性能を向上させましたが、処理速度が遅かったため、高コストでした。</li>
+</ul>
+<ol start="2">
+<li>Fast R-CNN:<br>
+Fast R-CNNは、R-CNNの高速化と統合を図った改良版です。
+候補領域の生成と特徴抽出を統合し、一度のCNNパスで処理します。
+候補領域の位置を回帰モデルを使用して修正し、物体の位置をより正確に予測します。<br>
+（イ）の正解：<br>
+<img src="image-48.png" alt="Alt text"></li>
+</ol>
+<ul>
+<li>Fast R-CNNはR-CNNに比べて高速で、精度も向上しましたが、候補領域の生成にはSelective Searchなどの遅いアルゴリズムが使用されていたため、全体的な処理速度はまだ改善の余地がありました。</li>
+</ul>
+<ol start="3">
+<li>Faster R-CNN:<br>
+Faster R-CNNは、候補領域の生成プロセスをエンドツーエンドでニューラルネットワークで処理することを可能にし、物体検出の高速化と精度向上を実現しました。
+候補領域の生成を担当するRPN（Region Proposal Network）と呼ばれるネットワークを導入し、候補領域の生成と特徴抽出を一体化させました。
+RPNは画像の畳み込み特徴マップを入力とし、候補領域の提案を効率的に生成します。<br>
+（ウ）の正解：<br>
+<img src="image-44.png" alt="Alt text"></li>
+</ol>
+<!-- ___◆解答___
+
+![Alt text](image-28.png) -->
+<div style="page-break-before:always"></div>
+<h2 id="%E9%BB%92%E6%9C%AC13%E7%AB%A0-%E5%95%8F8">黒本13章 問8</h2>
+<p><em><strong>◆問題</strong></em></p>
+<p><img src="image-9.png" alt="Alt text"></p>
+<p>正解は</p>
+<ul>
+<li>（ア）がBのYOLO</li>
+<li>（イ）がAのSSD</li>
+</ul>
+<ol>
+<li>
+<p>SSD (Single Shot MultiBox Detector):<br>
+SSDは、物体検出（object detection）のためのコンピュータビジョンモデルです。SSDは、画像内の複数の物体を同時に検出し、それぞれの物体の位置とクラスを特定することができます。SSDは、リアルタイムの物体検出タスクに適しており、異なるサイズとアスペクト比の物体を効率的に検出できます。このモデルは、2つの主要なコンポーネントである物体位置の回帰とクラス分類を組み合わせて使用します。<br>
+<img src="image-43.png" alt="Alt text"></p>
+</li>
+<li>
+<p>YOLO (You Only Look Once):<br>
+YOLOも物体検出のためのモデルで、画像内の物体を同時に検出し、位置とクラスを特定します。YOLOは高速でリアルタイムの物体検出に優れており、単一のニューラルネットワークを使用して検出と分類を同時に行います。YOLOのアーキテクチャはバージョンごとに進化しており、YOLOv3、YOLOv4、YOLOv5などが存在します。<br>
+<img src="image-42.png" alt="Alt text"></p>
+</li>
+<li>
+<p>U-Net:<br>
+U-Netは、セマンティックセグメンテーション（semantic segmentation）と呼ばれるタスクのためのディープラーニングモデルです。セマンティックセグメンテーションは、画像内の各ピクセルを異なるクラス（物体や背景など）に割り当てるタスクです。U-Netは、エンコーダー（画像の特徴を抽出する部分）とデコーダー（特徴マップを元の解像度に戻す部分）から構成されるユニークなアーキテクチャを持っており、セグメンテーションタスクに適しています。</p>
+</li>
+<li>
+<p>ResNet (Residual Neural Network):<br>
+ResNetは、ディープラーニングモデルのアーキテクチャであり、非常に深いニューラルネットワークを効果的に訓練するためのイノベーションを導入しました。通常、深いネットワークを訓練しようとすると、勾配消失問題が発生し、性能が低下しますが、ResNetは残差ブロック（residual block）と呼ばれる構造を使用してこの問題を解決しました。ResNetは、非常に深いネットワークで高い精度を実現し、画像認識などの多くのコンピュータビジョンタスクで広く使用されています。</p>
+</li>
+</ol>
+<!-- 
+___◆解答___
+
+![Alt text](image-29.png)
+
+
+<div style="page-break-before:always"></div>
+
+## 黒本13章 問9
+
+![Alt text](image-55.png)
+![Alt text](image-54.png)
+
+![Alt text](image-56.png)
+![Alt text](image-57.png)
+![Alt text](image-60.png)
+![Alt text](image-59.png)
+
+___◆問題___
+
+![Alt text](image-7.png)
+![Alt text](image-8.png)
+![Alt text](image-53.png)
+
+___◆解答___
+
+![Alt text](image-30.png)
+![Alt text](image-31.png)
+
+<div style="page-break-before:always"></div>
+
+## 黒本13章 問10
+
+___◆問題___
+
+![Alt text](image-5.png)
+![Alt text](image-6.png)
+
+___◆解答___
+
+![Alt text](image-32.png)
+![Alt text](image-33.png)
+
+<div style="page-break-before:always"></div>
+
+## 黒本13章 問11
+
+___◆問題___
+
+![Alt text](image-3.png)
+![Alt text](image-4.png)
+
+___◆解答___
+
+![Alt text](image-34.png) -->
+</body>
+</html>
