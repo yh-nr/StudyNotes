@@ -40,4 +40,4 @@ jobs:
       - uses: snow-actions/line-notify@v1.1.0
         with:
           access_token: ${{ secrets.SECRET_LINE_NOTIFY_API_TOKEN }}
-          message: "Published File URL: ${{ steps.deploy.outputs.page_url }}"
+          message: "Published File URL: ${{ steps.deployment.outputs.page_url }}"
