@@ -58,18 +58,35 @@ jobs:
       #     access_token: ${{ secrets.SECRET_LINE_NOTIFY_API_TOKEN }}
       #     message: "Published File URL: ${{ steps.deployment.outputs.page_url }}"
 
-      - name: Checkout gh-pages branch
-        uses: actions/checkout@v4
-        with:
-          ref: 'gh-pages' # 特定のブランチを指定
+      # - name: Checkout gh-pages branch
+      #   uses: actions/checkout@v4
+      #   with:
+      #     ref: 'gh-pages' # 特定のブランチを指定
 
-      - name: List files in output2 directory
-        run: |
-          echo "Listing files in output2 directory:"
-          find output2 -type f # ファイルのみをリストアップ
+      # - name: List files in output2 directory
+      #   run: |
+      #     echo "Listing files in output2 directory:"
+      #     find output2 -type f # ファイルのみをリストアップ
 
       - name: Notify published URLs via LINE
         uses: snow-actions/line-notify@v1.1.0
         with:
           access_token: ${{ secrets.SECRET_LINE_NOTIFY_API_TOKEN }}
           message: "Published Files URLs: ${{ steps.generate_urls.outputs.urls }}"
+
+
+
+      - name: Checkout gh-pages branch
+        uses: actions/checkout@v4
+        with:
+          ref: 'gh-pages' # 特定のブランチを指定
+
+      - name: Store files list in FILES variable without 'output2/' prefix
+        run: |
+          FILES=$(find output2 -type f | sed 's|output2/||g')
+          echo "FILES=$FILES" >> $GITHUB_ENV
+
+      - name: Display FILES variable
+        run: |
+          echo "List of files in FILES variable:"
+          echo $FILES
