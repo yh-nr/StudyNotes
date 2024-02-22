@@ -21,16 +21,29 @@ jobs:
       - name: List output directory after upload
         run: ls -lah ./output2
 
+      # - name: Generate URLs of published files
+      #   id: generate_urls
+      #   run: |
+      #     FILES=$(ls ./output2) # ここを修正しました
+      #     URLS=""
+      #     for FILE in $FILES; do
+      #       URL="${{ steps.deployment.outputs.page_url }}/$FILE"
+      #       URLS="$URLS\n$URL"
+      #     done
+      #     echo "::set-output name=urls::$URLS"
+
       - name: Generate URLs of published files
         id: generate_urls
         run: |
-          FILES=$(ls ./output2) # ここを修正しました
+          # ディレクトリ内のすべてのファイルの相対パスを取得（サブディレクトリ含む）
+          FILES=$(find ./output2 -type f -printf '%P\n')
           URLS=""
           for FILE in $FILES; do
             URL="${{ steps.deployment.outputs.page_url }}/$FILE"
             URLS="$URLS\n$URL"
           done
           echo "::set-output name=urls::$URLS"
+
 
 
       - name: Notify published URLs via LINE
