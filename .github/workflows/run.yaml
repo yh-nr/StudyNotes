@@ -18,6 +18,10 @@ jobs:
           name: marp_output
           path: ./output2
 
+      - name: List output directory after upload
+        run: ls -lah ./output2
+
+
       - uses: actions/upload-pages-artifact@v1
         with:
           path: ./output2
