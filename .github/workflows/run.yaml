@@ -58,10 +58,10 @@ jobs:
       #     access_token: ${{ secrets.SECRET_LINE_NOTIFY_API_TOKEN }}
       #     message: "Published File URL: ${{ steps.deployment.outputs.page_url }}"
 
-      - name: Checkout gh_pages branch
+      - name: Checkout gh-pages branch
         uses: actions/checkout@v4
         with:
-          ref: 'gh_pages' # 特定のブランチを指定
+          ref: 'gh-pages' # 特定のブランチを指定
 
       - name: List files in output2 directory
         run: |
