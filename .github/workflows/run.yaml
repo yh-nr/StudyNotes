@@ -45,7 +45,7 @@ jobs:
       - name: Generate URLs of published files
         id: generate_urls
         run: |
-          FILES=$(ls output2)
+          FILES=$(ls ./output2)
           URLS=""
           for FILE in $FILES; do
             URL="${{ steps.deployment.outputs.page_url }}/$FILE"
