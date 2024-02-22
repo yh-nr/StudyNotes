@@ -100,7 +100,7 @@ jobs:
         uses: snow-actions/line-notify@v1.1.0
         with:
           access_token: ${{ secrets.SECRET_LINE_NOTIFY_API_TOKEN }}
-          message: "$FILES_WITH_URLS"
+          message: "Published Files URLs: ${{ steps.generate_urls.outputs.urls }}"
 
 
       # - name: Encode file paths
@@ -114,7 +114,18 @@ jobs:
       #     FILES=$(find output2 -type f | sed 's|output2/||g')
       #     echo "FILES=$FILES" >> $GITHUB_ENV
 
-      # - name: Display FILES variable
-      #   run: |
-      #     echo "List of files in FILES variable:"
-      #     echo $FILES
+      - name: Display FILES variable
+        run: |
+          echo "List of files in FILES variable:"
+          echo $FILES
+
+
+
+      - name: Notify via LINE
+        env:
+          LINE_TOKEN: ${{ secrets.LINE_TOKEN }} # LINE NotifyのアクセストークンをGitHub Secretsから取得
+        run: |
+          MESSAGE="Published Files URLs:\n$FILES_WITH_URLS"
+          curl -X POST https://notify-api.line.me/api/notify \
+          -H "Authorization: Bearer $LINE_TOKEN" \
+          -F "message=$MESSAGE"
