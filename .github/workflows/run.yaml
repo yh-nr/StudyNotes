@@ -123,7 +123,7 @@ jobs:
 
       - name: Notify via LINE
         env:
-          LINE_TOKEN: ${{ secrets.LINE_TOKEN }} # LINE NotifyのアクセストークンをGitHub Secretsから取得
+          LINE_TOKEN: ${{ secrets.SECRET_LINE_NOTIFY_API_TOKEN }} # LINE NotifyのアクセストークンをGitHub Secretsから取得
         run: |
           MESSAGE="Published Files URLs:\n$FILES_WITH_URLS"
           curl -X POST https://notify-api.line.me/api/notify \
