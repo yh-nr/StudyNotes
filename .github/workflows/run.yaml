@@ -64,3 +64,8 @@ jobs:
           ls -alh
           echo "Checking output2 directory..."
           ls -alh output2/
+
+      - name: Display Current Directory
+        run: |
+          echo "Current directory is $(pwd)"
+          ls -alh
