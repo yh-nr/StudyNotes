@@ -18,19 +18,9 @@ jobs:
           name: marp_output
           path: ./output2
 
-      - name: List output directory after upload
-        run: ls -lah ./output2
-
-      # - name: Generate URLs of published files
-      #   id: generate_urls
-      #   run: |
-      #     FILES=$(ls ./output2) # ここを修正しました
-      #     URLS=""
-      #     for FILE in $FILES; do
-      #       URL="${{ steps.deployment.outputs.page_url }}/$FILE"
-      #       URLS="$URLS\n$URL"
-      #     done
-      #     echo "::set-output name=urls::$URLS"
+      - uses: actions/upload-pages-artifact@v1
+        with:
+          path: ./output2
 
       - name: Generate URLs of published files
         id: generate_urls
@@ -40,11 +30,9 @@ jobs:
           URLS=""
           for FILE in $FILES; do
             URL="${{ steps.deployment.outputs.page_url }}/$FILE"
-            URLS="$URLS\n$URL"
+            URLS="$URLS \n $URL"
           done
           echo "::set-output name=urls::$URLS"
-
-
 
       - name: Notify published URLs via LINE
         uses: snow-actions/line-notify@v1.1.0
@@ -52,9 +40,8 @@ jobs:
           access_token: ${{ secrets.SECRET_LINE_NOTIFY_API_TOKEN }}
           message: "Published Files URLs: ${{ steps.generate_urls.outputs.urls }}"
 
-      - uses: actions/upload-pages-artifact@v1
-        with:
-          path: ./output2
+
+
 
   deploy:
     needs: publish
