@@ -18,12 +18,6 @@ jobs:
           name: marp_output
           path: ./output2
 
-
-      - uses: snow-actions/line-notify@v1.1.0
-        with:
-          access_token: ${{ secrets.SECRET_LINE_NOTIFY_API_TOKEN }}
-          message: Pushしましたぞう!!!
-
       - uses: actions/upload-pages-artifact@v1
         with:
           path: ./output2
@@ -41,3 +35,9 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
+
+
+      - uses: snow-actions/line-notify@v1.1.0
+        with:
+          access_token: ${{ secrets.SECRET_LINE_NOTIFY_API_TOKEN }}
+          message: "Published File URL: ${{ steps.deploy.outputs.page_url }}"
