@@ -37,10 +37,6 @@ jobs:
         uses: actions/deploy-pages@v1
 
 
-
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
       - name: Download output2 directory
         uses: actions/download-artifact@v3
         with:
