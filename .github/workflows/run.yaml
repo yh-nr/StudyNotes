@@ -22,23 +22,18 @@ jobs:
         with:
           path: ./output2
 
-      - name: Generate URLs of published files
-        id: generate_urls
-        run: |
-          # ディレクトリ内のすべてのファイルの相対パスを取得（サブディレクトリ含む）
-          FILES=$(find ./output2 -type f -printf '%P\n')
-          URLS=""
-          for FILE in $FILES; do
-            URL="${{ steps.deployment.outputs.page_url }}/$FILE"
-            URLS="$URLS \n $URL"
-          done
-          echo "::set-output name=urls::$URLS"
+      # - name: Generate URLs of published files
+      #   id: generate_urls
+      #   run: |
+      #     # ディレクトリ内のすべてのファイルの相対パスを取得（サブディレクトリ含む）
+      #     FILES=$(find ./output2 -type f -printf '%P\n')
+      #     URLS=""
+      #     for FILE in $FILES; do
+      #       URL="${{ steps.deployment.outputs.page_url }}/$FILE"
+      #       URLS="$URLS \n $URL"
+      #     done
+      #     echo "::set-output name=urls::$URLS"
 
-      - name: Notify published URLs via LINE
-        uses: snow-actions/line-notify@v1.1.0
-        with:
-          access_token: ${{ secrets.SECRET_LINE_NOTIFY_API_TOKEN }}
-          message: "Published Files URLs: ${{ steps.generate_urls.outputs.urls }}"
 
 
 
@@ -53,29 +48,28 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      # - name: Checkout repository
-      #   uses: actions/checkout@v4
-
-      - name: Debug Information
-        run: |
-          echo "Current Workflow Run ID: $GITHUB_RUN_ID"
-          echo "Repository: $GITHUB_REPOSITORY"
-          echo "Workflow: $GITHUB_WORKFLOW"
-
-
-      - name: Download artifacts
-        uses: actions/download-artifact@v3
-        with:
-          name: marp_output
-          path: ./output2
 
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
 
-      - uses: snow-actions/line-notify@v1.1.0
+      # - uses: snow-actions/line-notify@v1.1.0
+      #   with:
+      #     access_token: ${{ secrets.SECRET_LINE_NOTIFY_API_TOKEN }}
+      #     message: "Published File URL: ${{ steps.deployment.outputs.page_url }}"
+
+      - name: Checkout gh_pages branch
+        uses: actions/checkout@v4
+        with:
+          ref: 'gh_pages' # 特定のブランチを指定
+
+      - name: List files in output2 directory
+        run: |
+          echo "Listing files in output2 directory:"
+          find output2 -type f # ファイルのみをリストアップ
+
+      - name: Notify published URLs via LINE
+        uses: snow-actions/line-notify@v1.1.0
         with:
           access_token: ${{ secrets.SECRET_LINE_NOTIFY_API_TOKEN }}
-          message: "Published File URL: ${{ steps.deployment.outputs.page_url }}"
-
-
+          message: "Published Files URLs: ${{ steps.generate_urls.outputs.urls }}"
