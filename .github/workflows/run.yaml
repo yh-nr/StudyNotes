@@ -81,10 +81,18 @@ jobs:
         with:
           ref: 'gh-pages' # 特定のブランチを指定
 
-      - name: Store files list in FILES variable without 'output2/' prefix
+
+
+      - name: Encode file paths
         run: |
-          FILES=$(find output2 -type f | sed 's|output2/||g')
+          FILES=$(find output2 -type f | sed 's|output2/||g' | base64)
           echo "FILES=$FILES" >> $GITHUB_ENV
+        shell: /usr/bin/bash -e {0}
+
+      # - name: Store files list in FILES variable without 'output2/' prefix
+      #   run: |
+      #     FILES=$(find output2 -type f | sed 's|output2/||g')
+      #     echo "FILES=$FILES" >> $GITHUB_ENV
 
       - name: Display FILES variable
         run: |
