@@ -37,29 +37,49 @@ jobs:
         uses: actions/deploy-pages@v1
 
 
-      - uses: snow-actions/line-notify@v1.1.0
-        with:
-          access_token: ${{ secrets.SECRET_LINE_NOTIFY_API_TOKEN }}
-          message: "Published File URL: ${{ steps.deployment.outputs.page_url }}"
 
-      - name: Generate URLs of published files
-        id: generate_urls
-        run: |
-          FILES=$(ls ${{ github.workspace }})
-          URLS=""
-          for FILE in $FILES; do
-            URL="${{ steps.deployment.outputs.page_url }}/$FILE"
-            URLS="$URLS\n$URL"
-          done
-          echo "::set-output name=urls::$URLS"
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - name: Notify published URLs via LINE
-        uses: snow-actions/line-notify@v1.1.0
+      - name: Download output2 directory
+        uses: actions/download-artifact@v3
         with:
-          access_token: ${{ secrets.SECRET_LINE_NOTIFY_API_TOKEN }}
-          message: "Published Files URLs: ${{ steps.generate_urls.outputs.urls }}"
+          name: marp_output  # アップロードしたアーティファクトの名前
 
       - name: Display Current Directory
         run: |
           echo "Current directory is $(pwd)"
           ls -alh
+
+      - name: List files in downloaded output2
+        run: |
+          echo "Listing files in output2 directory:"
+          ls -alh output2
+
+
+      # - uses: snow-actions/line-notify@v1.1.0
+      #   with:
+      #     access_token: ${{ secrets.SECRET_LINE_NOTIFY_API_TOKEN }}
+      #     message: "Published File URL: ${{ steps.deployment.outputs.page_url }}"
+
+      # - name: Generate URLs of published files
+      #   id: generate_urls
+      #   run: |
+      #     FILES=$(ls ${{ github.workspace }})
+      #     URLS=""
+      #     for FILE in $FILES; do
+      #       URL="${{ steps.deployment.outputs.page_url }}/$FILE"
+      #       URLS="$URLS\n$URL"
+      #     done
+      #     echo "::set-output name=urls::$URLS"
+
+      # - name: Notify published URLs via LINE
+      #   uses: snow-actions/line-notify@v1.1.0
+      #   with:
+      #     access_token: ${{ secrets.SECRET_LINE_NOTIFY_API_TOKEN }}
+      #     message: "Published Files URLs: ${{ steps.generate_urls.outputs.urls }}"
+
+      # - name: Display Current Directory
+      #   run: |
+      #     echo "Current directory is $(pwd)"
+      #     ls -alh
