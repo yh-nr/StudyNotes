@@ -68,12 +68,6 @@ jobs:
       #     echo "Listing files in output2 directory:"
       #     find output2 -type f # ファイルのみをリストアップ
 
-      - name: Notify published URLs via LINE
-        uses: snow-actions/line-notify@v1.1.0
-        with:
-          access_token: ${{ secrets.SECRET_LINE_NOTIFY_API_TOKEN }}
-          message: "Published Files URLs: ${{ steps.generate_urls.outputs.urls }}"
-
 
 
       - name: Checkout gh-pages branch
@@ -102,6 +96,12 @@ jobs:
 
 
 
+      - name: Notify published URLs via LINE
+        uses: snow-actions/line-notify@v1.1.0
+        with:
+          access_token: ${{ secrets.SECRET_LINE_NOTIFY_API_TOKEN }}
+          message: "$FILES_WITH_URLS"
+
 
       # - name: Encode file paths
       #   run: |
@@ -114,7 +114,7 @@ jobs:
       #     FILES=$(find output2 -type f | sed 's|output2/||g')
       #     echo "FILES=$FILES" >> $GITHUB_ENV
 
-      - name: Display FILES variable
-        run: |
-          echo "List of files in FILES variable:"
-          echo $FILES
+      # - name: Display FILES variable
+      #   run: |
+      #     echo "List of files in FILES variable:"
+      #     echo $FILES
