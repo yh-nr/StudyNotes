@@ -59,12 +59,6 @@ jobs:
           access_token: ${{ secrets.SECRET_LINE_NOTIFY_API_TOKEN }}
           message: "Published Files URLs: ${{ steps.generate_urls.outputs.urls }}"
 
-      - name: Check output2 directory
-        run: |
-          ls -alh
-          echo "Checking output2 directory..."
-          ls -alh output2/
-
       - name: Display Current Directory
         run: |
           echo "Current directory is $(pwd)"
