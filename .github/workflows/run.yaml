@@ -12,10 +12,12 @@ jobs:
         with:
           config-file: ./.marprc-ci.yml
 
-
       - name: Generate index.html
+        env:
+          OUTPUT_PATH: ${{ steps.publish.outputs.paths }}/output2
         run: |
-          ls "${{steps.publish.outputs.paths }}/output2"
+          ls "$OUTPUT_PATH"
+
 
 
       - name: Save outputs
