@@ -80,8 +80,8 @@ jobs:
           PAGE_URL="${{ steps.deployment.outputs.page_url }}"
 
 
-          echo "${{ needs.publish.outputs.file_list }}"
-          FILE = ${{ needs.publish.outputs.file_list }}
+          FILES = ${{ needs.publish.outputs.file_list }}
+          echo "$FILES"
 
           FILES_WITH_URLS=$(echo "$FILE" | sed 's/%/\n/g')
 
