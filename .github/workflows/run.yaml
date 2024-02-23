@@ -41,7 +41,7 @@ jobs:
           # output2ディレクトリ内のすべてのファイルの相対パスを取得し、プレフィックスを追加
           # 改行コードとして\r\nを使用
 
-          FILES=$(find ./output2 -type f | sed 's|./output2/||g' | while read file; do echo "${PAGE_URL}${file// /%20} \n "; done | tr '\n' '%')
+          FILES=$(find ./output2 -type f | sed 's|./output2/||g' | while read file; do echo "${PAGE_URL}${file// /%20} \n "; done | tr '\n' '%'  | sed 's/%/%/g')
           echo "FILES_WITH_URLS=$(echo "$FILES" | sed 's/%/\n/g')" >> $GITHUB_ENV
 
       - name: Notify via LINE
