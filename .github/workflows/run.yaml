@@ -7,18 +7,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+
       - name: Convert Markdown into PDF
         uses: KoharaKazuya/marp-cli-action@v2
         with:
           config-file: ./.marprc-ci.yml
-
-      - name: Generate index.html
-        env:
-          OUTPUT_PATH: "./output2"
-        run: |
-          echo "$OUTPUT_PATH"
-          ls "$OUTPUT_PATH"
-
 
 
       - name: Save outputs
@@ -28,30 +21,26 @@ jobs:
           path: ./output2
 
 
-
       - uses: actions/upload-pages-artifact@v1
         with:
           path: ./output2
 
-      - name: Generate file URLs with CRLF
-        id: generate_file_urls
-        env:
-          LINE_TOKEN: ${{ secrets.SECRET_LINE_NOTIFY_API_TOKEN }} # LINE NotifyのアクセストークンをGitHub Secretsから取得
-        run: |
-          # GitHub PagesのデプロイメントURLを環境変数から取得
-          PAGE_URL="${{ steps.deployment.outputs.page_url }}"
-          # output2ディレクトリ内のすべてのファイルの相対パスを取得し、プレフィックスを追加
-          # 改行コードとして\r\nを使用
 
-          FILES=$(find ./output2 -type f | sed 's|./output2/||g' | while read file; do echo "${PAGE_URL}${file// /%20} \n "; done | tr '\n' '%'  | sed 's/%/%%/g')
-          FILES_WITH_URLS=$(echo "$FILES" | sed 's/%/\n/g')
+      # - name: Generate file URLs with CRLF
+      #   id: generate_file_urls
+      #   env:
+      #     LINE_TOKEN: ${{ secrets.SECRET_LINE_NOTIFY_API_TOKEN }} # LINE NotifyのアクセストークンをGitHub Secretsから取得
+      #   run: |
+      #     # GitHub PagesのデプロイメントURLを環境変数から取得
+      #     PAGE_URL="${{ steps.deployment.outputs.page_url }}"
 
-          MESSAGE="Published Files URLs:\n$FILES_WITH_URLS"
-          curl -X POST https://notify-api.line.me/api/notify \
-          -H "Authorization: Bearer $LINE_TOKEN" \
-          -F "message=$MESSAGE"
+      #     FILES=$(find ./output2 -type f | sed 's|./output2/||g' | while read file; do echo "${PAGE_URL}${file// /%20} \n "; done | tr '\n' '%'  | sed 's/%/%%/g')
+      #     FILES_WITH_URLS=$(echo "$FILES" | sed 's/%/\n/g')
 
-
+      #     MESSAGE="Published Files URLs:\n$FILES_WITH_URLS"
+      #     curl -X POST https://notify-api.line.me/api/notify \
+      #     -H "Authorization: Bearer $LINE_TOKEN" \
+      #     -F "message=$MESSAGE"
 
 
   deploy:
@@ -69,83 +58,19 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v1
 
-      # - uses: snow-actions/line-notify@v1.1.0
-      #   with:
-      #     access_token: ${{ secrets.SECRET_LINE_NOTIFY_API_TOKEN }}
-      #     message: "Published File URL: ${{ steps.deployment.outputs.page_url }}"
-
-      # - name: Checkout gh-pages branch
-      #   uses: actions/checkout@v4
-      #   with:
-      #     ref: 'gh-pages' # 特定のブランチを指定
-
-      # - name: List files in output2 directory
-      #   run: |
-      #     echo "Listing files in output2 directory:"
-      #     find output2 -type f # ファイルのみをリストアップ
-
-
-
-      # - name: Checkout gh-pages branch
-      #   uses: actions/checkout@v4
-      #   with:
-      #     ref: 'gh-pages' # 特定のブランチを指定
-
-
-
-      # - name: Generate file URLs
-      #   id: generate_file_urls
-      #   run: |
-      #     # GitHub PagesのデプロイメントURLを環境変数から取得
-      #     PAGE_URL="${{ steps.deployment.outputs.page_url }}"
-      #     # output2ディレクトリ内のすべてのファイルの相対パスを取得し、プレフィックスを追加
-
-      #     FILES=$(find output2 -type f | sed 's|output2/||g' | while read file; do echo "${PAGE_URL}${file// /%20}"; done | tr '\n' '%' | sed 's/%/%0A/g')
-      #     echo "FILES_WITH_URLS=$FILES" >> $GITHUB_ENV
-
-
 
       - name: Generate file URLs with CRLF
         id: generate_file_urls
+        env:
+          LINE_TOKEN: ${{ secrets.SECRET_LINE_NOTIFY_API_TOKEN }} # LINE NotifyのアクセストークンをGitHub Secretsから取得
         run: |
           # GitHub PagesのデプロイメントURLを環境変数から取得
           PAGE_URL="${{ steps.deployment.outputs.page_url }}"
-          # output2ディレクトリ内のすべてのファイルの相対パスを取得し、プレフィックスを追加
-          # 改行コードとして\r\nを使用
-          # FILES=$(find output2 -type f | sed 's|output2/||g' | while read file; do echo "${PAGE_URL}${file// /%20} \n "; done | tr '\n' '%' )
 
-          FILES=$(find output2 -type f | sed 's|output2/||g' | while read file; do echo "${PAGE_URL}${file// /%20} \n "; done | tr '\n' '%')
-          echo "FILES_WITH_URLS=$(echo "$FILES" | sed 's/%/\n/g')" >> $GITHUB_ENV
+          FILES=$(find ./output2 -type f | sed 's|./output2/||g' | while read file; do echo "${PAGE_URL}${file// /%20} \n "; done | tr '\n' '%'  | sed 's/%/%%/g')
+          FILES_WITH_URLS=$(echo "$FILES" | sed 's/%/\n/g')
 
-
-
-      - name: Display URLs
-        run: |
-          echo "Generated URLs:"
-          echo $FILES_WITH_URLS
-
-
-
-
-      - name: Notify published URLs via LINE
-        uses: snow-actions/line-notify@v1.1.0
-        with:
-          access_token: ${{ secrets.SECRET_LINE_NOTIFY_API_TOKEN }}
-          message: "Published Files URLs: ${{ steps.generate_urls.outputs.urls }}"
-
-
-      # - name: Encode file paths
-      #   run: |
-      #     FILES=$(find output2 -type f | sed 's|output2/||g' | base64)
-      #     echo "FILES=$FILES" >> $GITHUB_ENV
-      #   shell: /usr/bin/bash -e {0}
-
-      # # - name: Store files list in FILES variable without 'output2/' prefix
-      #   run: |
-      #     FILES=$(find output2 -type f | sed 's|output2/||g')
-      #     echo "FILES=$FILES" >> $GITHUB_ENV
-
-      - name: Display FILES variable
-        run: |
-          echo "List of files in FILES variable:"
-          echo $FILES
+          MESSAGE="Published Files URLs:\n$FILES_WITH_URLS"
+          curl -X POST https://notify-api.line.me/api/notify \
+          -H "Authorization: Bearer $LINE_TOKEN" \
+          -F "message=$MESSAGE"
