@@ -44,7 +44,7 @@ jobs:
           FILES=$(find ./output2 -type f | sed 's|./output2/||g' | while read file; do echo "${PAGE_URL}${file// /%20} "; done | tr '\n' '%'  | sed 's/%/%%/g')
           FILES_WITH_URLS="\n"$(echo "$FILES" | sed 's/%/\n/g')
 
-          MESSAGE="\$FILES_WITH_URLS"
+          MESSAGE="\n"$FILES_WITH_URLS
           curl -X POST https://notify-api.line.me/api/notify \
           -H "Authorization: Bearer $LINE_TOKEN" \
           -F "message=$MESSAGE"
