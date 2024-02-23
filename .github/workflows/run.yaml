@@ -37,7 +37,7 @@ jobs:
           # PAGE_URL="${{ steps.deployment.outputs.page_url }}"
 
 
-          REPOSITORY_NAME = "${{github.repository}}"
+          # REPOSITORY_NAME = "${{github.repository}}"
           # REPOSITORY_NAME=${REPOSITORY_NAME#*/}
 
           # echo "$REPOSITORY_NAME"
