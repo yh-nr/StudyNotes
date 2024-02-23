@@ -14,7 +14,7 @@ jobs:
 
       - name: Generate index.html
         env:
-          OUTPUT_PATH: "${{ steps.publish.outputs.paths }}/output2"
+          OUTPUT_PATH: "${{ steps.publish.outputs.paths }}"
         run: |
           echo "$OUTPUT_PATH"
           ls "$OUTPUT_PATH"
