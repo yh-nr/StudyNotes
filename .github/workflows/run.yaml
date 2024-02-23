@@ -72,14 +72,18 @@ jobs:
 
 
       - name: Generate file URLs with CRLF
-        id: generate_file_urls
+        id: generate_file_urls2
         env:
           LINE_TOKEN: ${{ secrets.SECRET_LINE_NOTIFY_API_TOKEN }} # LINE NotifyのアクセストークンをGitHub Secretsから取得
         run: |
           # GitHub PagesのデプロイメントURLを環境変数から取得
           PAGE_URL="${{ steps.deployment.outputs.page_url }}"
 
-          FILES_WITH_URLS=$(echo "${{ needs.publish.outputs.file_list }}" | sed 's/%/\n/g')
+
+          echo "${{ needs.publish.outputs.file_list }}"
+          FILE = ${{ needs.publish.outputs.file_list }}
+
+          FILES_WITH_URLS=$(echo "$FILE" | sed 's/%/\n/g')
 
           MESSAGE="%20%20 $FILES_WITH_URLS"
           curl -X POST https://notify-api.line.me/api/notify \
