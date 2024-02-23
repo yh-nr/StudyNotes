@@ -1,6 +1,6 @@
 lang: ja-JP
 allowLocalFiles: true
-theme: ./styles/A4-Manual.css
+themeSet: ./styles
 inputDir: ./src
 output: ./output2
 pdf: true
