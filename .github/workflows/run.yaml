@@ -42,7 +42,7 @@ jobs:
 
           # echo "$REPOSITORY_NAME"
 
-          PAGE_URL="https://${{github.repository_owner}}.github.io${{REPOSITORY_NAME}}/"
+          PAGE_URL="https://${{github.repository_owner}}.github.io${{github.repository}}/"
 
           FILES=$(find ./output2 -type f | sed 's|./output2/||g' | while read file; do echo "${PAGE_URL}${file// /%20} \n "; done | tr '\n' '%'  | sed 's/%/%%/g')
           FILES_WITH_URLS=$(echo "$FILES" | sed 's/%/\n/g')
