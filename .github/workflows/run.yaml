@@ -80,10 +80,10 @@ jobs:
           PAGE_URL="${{ steps.deployment.outputs.page_url }}"
 
 
-          FILES = ${{ needs.publish.outputs.file_list }}
+          FILES = "${{ needs.publish.outputs.file_list }}""
           echo "$FILES"
 
-          FILES_WITH_URLS=$(echo "$FILE" | sed 's/%/\n/g')
+          FILES_WITH_URLS=$(echo "$FILES" | sed 's/%/\n/g')
 
           MESSAGE="%20%20 $FILES_WITH_URLS"
           curl -X POST https://notify-api.line.me/api/notify \
