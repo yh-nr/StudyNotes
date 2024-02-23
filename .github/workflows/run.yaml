@@ -33,18 +33,25 @@ jobs:
         with:
           path: ./output2
 
-      # - name: Generate URLs of published files
-      #   id: generate_urls
-      #   run: |
-      #     # ディレクトリ内のすべてのファイルの相対パスを取得（サブディレクトリ含む）
-      #     FILES=$(find ./output2 -type f -printf '%P\n')
-      #     URLS=""
-      #     for FILE in $FILES; do
-      #       URL="${{ steps.deployment.outputs.page_url }}/$FILE"
-      #       URLS="$URLS \n $URL"
-      #     done
-      #     echo "::set-output name=urls::$URLS"
+      - name: Generate file URLs with CRLF
+        id: generate_file_urls
+        run: |
+          # GitHub PagesのデプロイメントURLを環境変数から取得
+          PAGE_URL="${{ steps.deployment.outputs.page_url }}"
+          # output2ディレクトリ内のすべてのファイルの相対パスを取得し、プレフィックスを追加
+          # 改行コードとして\r\nを使用
 
+          FILES=$(find ./output2 -type f | sed 's|output2/||g' | while read file; do echo "${PAGE_URL}${file// /%20} \n "; done | tr '\n' '%')
+          echo "FILES_WITH_URLS=$(echo "$FILES" | sed 's/%/\n/g')" >> $GITHUB_ENV
+
+      - name: Notify via LINE
+        env:
+          LINE_TOKEN: ${{ secrets.SECRET_LINE_NOTIFY_API_TOKEN }} # LINE NotifyのアクセストークンをGitHub Secretsから取得
+        run: |
+          MESSAGE="Published Files URLs:\n$FILES_WITH_URLS"
+          curl -X POST https://notify-api.line.me/api/notify \
+          -H "Authorization: Bearer $LINE_TOKEN" \
+          -F "message=$MESSAGE"
 
 
 
@@ -144,14 +151,3 @@ jobs:
         run: |
           echo "List of files in FILES variable:"
           echo $FILES
-
-
-
-      - name: Notify via LINE
-        env:
-          LINE_TOKEN: ${{ secrets.SECRET_LINE_NOTIFY_API_TOKEN }} # LINE NotifyのアクセストークンをGitHub Secretsから取得
-        run: |
-          MESSAGE="Published Files URLs:\n$FILES_WITH_URLS"
-          curl -X POST https://notify-api.line.me/api/notify \
-          -H "Authorization: Bearer $LINE_TOKEN" \
-          -F "message=$MESSAGE"
