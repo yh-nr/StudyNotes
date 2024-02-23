@@ -40,7 +40,7 @@ jobs:
           REPOSITORY_NAME = "${{github.repository}}"
           # REPOSITORY_NAME=${REPOSITORY_NAME#*/}
 
-          echo "$REPOSITORY_NAME"
+          # echo "$REPOSITORY_NAME"
 
           PAGE_URL="https://${{github.repository_owner}}.github.io${{REPOSITORY_NAME}}/"
 
