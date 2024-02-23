@@ -70,10 +70,10 @@ jobs:
 
 
 
-      - name: Checkout gh-pages branch
-        uses: actions/checkout@v4
-        with:
-          ref: 'gh-pages' # 特定のブランチを指定
+      # - name: Checkout gh-pages branch
+      #   uses: actions/checkout@v4
+      #   with:
+      #     ref: 'gh-pages' # 特定のブランチを指定
 
 
 
