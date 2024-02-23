@@ -5,7 +5,7 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     outputs:
-        file_list: ${{ steps.set_outputs.outputs.file_list }}
+        file_list: ${{ steps.generate_file_urls.outputs.file_list }}
     steps:
       - uses: actions/checkout@v4
 
@@ -48,7 +48,7 @@ jobs:
       - name: Generate file URLs with CRLF
         id: generate_file_urls
         run: |
-          FILES=$(find ./output2 -type f | sed 's|./output2/||g' | while read file; do echo "${file// /%20} \n "; done | tr '\n' '%'  | sed 's/%/%%/g')
+          FILES=$(find ./output2 -type f | sed 's|./output2/||g' | while read file; do echo "${file// /}%20 \n "; done | tr '\n' '%'  | sed 's/%/%%/g')
           echo "file_list = $FILES" >> $GITHUB_OUTPUT
 
 
@@ -81,7 +81,7 @@ jobs:
 
           FILES_WITH_URLS=$(echo "${{ needs.publish.outputs.file_list }}" | sed 's/%/\n/g')
 
-          MESSAGE="\n\n $FILES_WITH_URLS"
+          MESSAGE="%20%20 $FILES_WITH_URLS"
           curl -X POST https://notify-api.line.me/api/notify \
           -H "Authorization: Bearer $LINE_TOKEN" \
           -F "message=$MESSAGE"
