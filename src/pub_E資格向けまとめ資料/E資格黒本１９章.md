@@ -1,4 +1,4 @@
-<!-- 
+<!--
 marp: true
 headingDivider: 1
 theme: A4-Manual
@@ -27,7 +27,7 @@ footer: E資格範囲の数式まとめ
 
 ### 8. k-means実装（5問）
 - argがつくとindexを返す
-- 関数名の意味を理解してればピンとくる？ 
+- 関数名の意味を理解してればピンとくる？
     ![](Pasted%20image%2020240128195639.png)
 
 
@@ -42,7 +42,7 @@ footer: E資格範囲の数式まとめ
 - 式覚える
 - スパースの意味![](Pasted%20image%2020240128201517.png)
 
---- 
+---
 
 ### 12. 確率的勾配降下法の実装（4問）
 
@@ -124,7 +124,7 @@ $$\begin{align}
 ---
 
 
-# 固有方程式  
+# 固有方程式
 <!-- _header: 線形代数 -->
 
 $$ \large \det (\lambda I - A) = 0$$
@@ -145,7 +145,7 @@ $$ \large A = U\Sigma V^T $$
 - $U$　は
 - $\Sigma$　は
 - $V^T$　は
-- 
+-
 
 
 
@@ -179,7 +179,7 @@ $$\large\begin{align}Var[X] &= \mathbb{E}[(X-\mathbb{E}[X])^2)] \\
   &= \sum_{x=0}^{1}x^2p^x(1-p)^{1-x}-p^2 \\
   &= p-p^2\\&=p(1-p)\end{align}$$
 ###### 各要素の意味など
-- 
+-
 
 
 
@@ -188,7 +188,7 @@ $$\large\begin{align}Var[X] &= \mathbb{E}[(X-\mathbb{E}[X])^2)] \\
 $$\large{f(x;p) = \prod_{j=1}^{k}p_j^{x_j}}　\\(ただし、\sum_{j=1}^{k}p_j =1、0\le p_j \le 1、j=1,....)$$
 
 ###### 各要素の意味など
-- 
+-
 
 
 
@@ -200,7 +200,7 @@ $$\large\begin{align} -\log L_D (p) &= -\log\prod_{i=1}^{n}f(x_i;p)　 \\
   &= -\sum_{i=1}^{n}\sum_{j=1}^{k}x_{ij}\log p_j
   \end{align}$$
 ###### 各要素の意味など
-- 
+-
 
 
 
@@ -208,7 +208,7 @@ $$\large\begin{align} -\log L_D (p) &= -\log\prod_{i=1}^{n}f(x_i;p)　 \\
 
 $$\large f(x; \mu,\sigma^2) = \frac{1}{\sqrt{2\pi\sigma^2}}\exp\left(-\frac{1}{2\sigma^2}(x-\mu)^2\right)$$
 ###### 各要素の意味など
-- 
+-
 
 
 
@@ -222,7 +222,7 @@ $$\large\begin{align} L(\mu) &= \prod_{i=1}^{n}f(x_i;\mu)\\
 &=-n\log\left(\frac{1}{\sqrt{2\pi}}\right)-\frac{1}{2}\sum_{i=1}^{n}(x_i-\mu)^2\\
 \end{align}$$
 ###### 各要素の意味など
-- 
+-
 a
 
 
@@ -238,7 +238,7 @@ $$\large\hat\mu = \frac{1}{n}\sum_{i=1}^{n}x_i$$
 
 
 ###### 各要素の意味など
-- 
+-
 
 
 
@@ -246,7 +246,7 @@ $$\large\hat\mu = \frac{1}{n}\sum_{i=1}^{n}x_i$$
 $$\large H(X) = -\sum_{x}p(x)\log_2p(x)$$
 
 ###### 各要素の意味など
-- 
+-
 
 
 
@@ -277,7 +277,7 @@ $$\large D(p||q) = \sum_{x}p(x)\log_2\frac{p(x)}{q(x)}$$
 
 
 ###### 各要素の意味など
-- 
+-
 
 
 
@@ -288,7 +288,7 @@ $$\large r(x) = \frac{p(x)+q(x)}{2}$$
 
 
 ###### 各要素の意味など
-- 
+-
 
 
 
@@ -298,7 +298,7 @@ $$\large p(C|x) = \frac{p(x|C)p(C)}{p(x)}$$
 
 
 ###### 各要素の意味など
-- 
+-
 
 
 
@@ -314,7 +314,7 @@ $$\large\begin{align}
 
 
 ###### 各要素の意味など
-- 
+-
 
 # オッズ
 <!-- _header: テスト --->
@@ -330,7 +330,7 @@ $$\large\begin{align}
 
 
 ###### 各要素の意味など
-- 
+-
 
 
 
@@ -341,7 +341,7 @@ $$\large k(x,x')=\exp\left(-\frac{||x-x'||^2}{\beta}\right)$$
 
 
 ###### 各要素の意味など
-- 
+-
 
 
 
@@ -356,7 +356,7 @@ $$\large\begin{align}
 
 
 ###### 各要素の意味など
-- 
+-
 
 
 
@@ -435,7 +435,7 @@ $$\large p(y|x)p(x) = \frac{p(x,y)}{p(x)}\cdot p(x) = p(x,y)$$
 
 
 ###### 各要素の意味など
-- 
+-
 
 
 
@@ -454,7 +454,7 @@ Q^\pi(s,a) &= \mathbb{E}[R_{t+1}+\gamma V^\pi(S_{t+1})|S_t = s,A_t = a]\\
 \end{align}$$
 
 ###### 各要素の意味など
-- 
+-
 
 
 
@@ -464,7 +464,7 @@ $$\large Q(S_t,A_t) \leftarrow Q(S_t,A_t)+\alpha[R_{t+1} + \gamma Q(S_{t+1},A_{t
 
 
 ###### 各要素の意味など
-- 
+-
 
 
 
@@ -474,7 +474,7 @@ $$\large Q(S_t,A_t) \leftarrow Q(S_t,A_t)+\alpha\left[R_{t+1} + \gamma \max_{a'}
 
 
 ###### 各要素の意味など
-- 
+-
 
 
 
@@ -483,7 +483,7 @@ $$\large Q(S_t,A_t) \leftarrow Q(S_t,A_t)+\alpha\left[R_{t+1} + \gamma \max_{a'}
 $$\large\begin{align}
 &\nabla_\theta J(\theta) = \sum d^{\pi_\theta}(s) \sum \nabla_\theta\pi_\theta(a|s,\theta)Q^{\pi_\theta}(s,a) \\
 &\nabla_\theta\log \pi_\theta(a|s) = \frac{\partial\pi_\theta(a|s)}{\partial\theta}\frac{1}{\pi_\theta(a|s)} \\
-&d^{\pi_\theta}(s) = \sum_{k=0}^{\infty}\gamma^kP^{\pi_\theta}(s_k=s|s_0) 
+&d^{\pi_\theta}(s) = \sum_{k=0}^{\infty}\gamma^kP^{\pi_\theta}(s_k=s|s_0)
 \end{align}$$
 $$\large\begin{align}
 \nabla_\theta J(\theta) &= \sum d^{\pi_\theta}(s) \sum_a( \nabla_\theta\pi_\theta(a|s,\theta))Q^{\pi_\theta}(s,a) \\
@@ -493,7 +493,7 @@ $$\large\begin{align}
 
 
 ###### 各要素の意味など
-- 
+-
 
 
 
@@ -505,7 +505,7 @@ $$
 
 
 ###### 各要素の意味など
-- 
+-
 
 
 
@@ -594,8 +594,8 @@ $$\large \Theta_{t+1} = \Theta_t+\alpha^2v_t-(1+\alpha)\eta\frac{\partial L}{\pa
 ```
 params[key] += self.momentum * self.momentum * self.v[key]
 params[key] -= (1 + self.momentum) * self.lr * grads[key]
-self.v[key] *= self.momentum   
-self.v[key] -= self.lr * grads[key]     
+self.v[key] *= self.momentum
+self.v[key] -= self.lr * grads[key]
 ```
 
 ###### 各要素の意味など
@@ -604,7 +604,7 @@ self.v[key] -= self.lr * grads[key]
 - $\eta$は学習率
 - $\theta$はパラメータ、$\theta_{t}$は更新前$\theta_{t+1}$が更新後
 - $\frac{\partial L}{\partial \theta_t}$はパラメータの勾配
-- 
+-
 
 
 
@@ -744,7 +744,7 @@ $$\large Dice(S_{true},S_{pred})=\frac{|S_{true}\cap S_{pred}|}{\frac{|S_{true}|
 ###### 各要素の意味など
 - $S_{true}$：正解の領域
 - $S_{pred}$：予測した領域
-- $IoU \leq Dice係数$ 
+- $IoU \leq Dice係数$
 
 ![width:360px](Pasted%20image%2020240211085127.png)![width:360px](Pasted%20image%2020240211085142.png)
 
@@ -810,7 +810,7 @@ $$\large\begin{align}
 \end{align}$$
 
 ###### 各要素の意味など
-- 
+-
 
 
 
@@ -820,7 +820,7 @@ p(x) = \prod_{t=1}^{T}p(x_t|x_1,x_2,...,x_{t-1})\\
 $$
 
 ###### 各要素の意味など
-- 
+-
 
 
 
@@ -828,7 +828,7 @@ $$
 $$\large\text{Attention}(Q,K,V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V$$
 
 ###### 各要素の意味など
-- 
+-
 
 
 
@@ -839,7 +839,7 @@ $$\large\begin{align}
 \end{align}$$
 
 ###### 各要素の意味など
-- 
+-
 
 
 
@@ -849,7 +849,7 @@ $$\begin{align}
 \end{align}$$
 
 ###### 各要素の意味など
-- 
+-
 
 
 
@@ -859,7 +859,7 @@ $$\large
 $$
 
 ###### 各要素の意味など
-- 
+-
 
 
 
@@ -869,7 +869,7 @@ L(\theta)=\mathbb{E_{s,a,r,s'\sim D}}\left[\left(r+\gamma\max_{a'}Q(s',a';\theta
 $$
 
 ###### 各要素の意味など
-- 
+-
 
 
 
@@ -877,5 +877,5 @@ $$
 $$\large\text{Softmax}(z)_i=\frac{\exp(z_i/T)}{\Sigma_j\exp(z_j/T)}$$
 
 ###### 各要素の意味など
-- 
+-
 
