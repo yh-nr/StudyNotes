@@ -4,6 +4,8 @@ on: [push]
 jobs:
   publish:
     runs-on: ubuntu-latest
+    outputs:
+        file_list: ${{ steps.set_outputs.outputs.file_list }}
     steps:
       - uses: actions/checkout@v4
 
@@ -43,6 +45,14 @@ jobs:
       #     -F "message=$MESSAGE"
 
 
+      - name: Generate file URLs with CRLF
+        id: generate_file_urls
+        run: |
+          FILES=$(find ./output2 -type f | sed 's|./output2/||g' | while read file; do echo "${file// /%20} \n "; done | tr '\n' '%'  | sed 's/%/%%/g')
+          echo "file_list = $FILES" >> $GITHUB_OUTPUT
+
+
+
   deploy:
     needs: publish
     permissions:
@@ -59,6 +69,8 @@ jobs:
         uses: actions/deploy-pages@v1
 
 
+
+
       - name: Generate file URLs with CRLF
         id: generate_file_urls
         env:
@@ -67,8 +79,7 @@ jobs:
           # GitHub PagesのデプロイメントURLを環境変数から取得
           PAGE_URL="${{ steps.deployment.outputs.page_url }}"
 
-          FILES=$(find ./output2 -type f | sed 's|./output2/||g' | while read file; do echo "${PAGE_URL}${file// /%20} \n "; done | tr '\n' '%'  | sed 's/%/%%/g')
-          FILES_WITH_URLS=$(echo "$FILES" | sed 's/%/\n/g')
+          FILES_WITH_URLS=$(echo "${{ needs.publish.outputs.file_list }}" | sed 's/%/\n/g')
 
           MESSAGE="Published Files URLs:\n$FILES_WITH_URLS"
           curl -X POST https://notify-api.line.me/api/notify \
