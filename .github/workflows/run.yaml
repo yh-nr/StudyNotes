@@ -21,11 +21,11 @@ jobs:
 
       - name: Generate index.html
         run: |
-          echo "<html><body><h1>Files and Folders List</h1><ul>" > output2/index.html
-          find output2 -type f -or -type d | sed 's|^output2/||' | while read item; do
+          echo "<html><body><h1>Files and Folders List</h1><ul>" > ./output2/index.html
+          find ./output2 -type f -or -type d | sed 's|^output2/||' | while read item; do
             echo "<li>${item}</li>" >> output2/index.html
           done
-          echo "</ul></body></html>" >> output2/index.html
+          echo "</ul></body></html>" >> ./output2/index.html
 
       - uses: actions/upload-pages-artifact@v1
         with:
