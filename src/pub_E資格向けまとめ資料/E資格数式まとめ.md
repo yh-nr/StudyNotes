@@ -1075,7 +1075,7 @@ $D_f$：入力特徴マップサイズ
 
 ### np.ndarrayのaxisについて
 
-整数の \(2 \times 4\) 配列：
+整数の $2 \times 4$ 配列：
 
 $$
 \begin{bmatrix}
@@ -1103,7 +1103,7 @@ $$
 \end{bmatrix}
 $$
 
-### テスト
+### テスト　
 
 
 <div class="mermaid">
