@@ -1,6 +1,6 @@
 lang: ja-JP
 allowLocalFiles: true
-theme: "https://raw.githubusercontent.com/yh-nr/Marp_CSS_themes/main/A4-Manual.css"
+theme: projects\Marp_CSS_themes\A4-Manual.css
 inputDir: ./src
 output: ./output2
 pdf: true
