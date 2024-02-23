@@ -81,7 +81,7 @@ jobs:
 
           FILES_WITH_URLS=$(echo "${{ needs.publish.outputs.file_list }}" | sed 's/%/\n/g')
 
-          MESSAGE="Published Files URLs:\n$FILES_WITH_URLS"
+          MESSAGE="\n\n $FILES_WITH_URLS"
           curl -X POST https://notify-api.line.me/api/notify \
           -H "Authorization: Bearer $LINE_TOKEN" \
           -F "message=$MESSAGE"
