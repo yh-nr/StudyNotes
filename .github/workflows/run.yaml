@@ -41,7 +41,7 @@ jobs:
 
           PAGE_URL="https://${{github.repository_owner}}.github.io/${REPOSITORY_NAME}/"
 
-          FILES=$(find ./output2 -type f | sed 's|./output2/||g' | while read file; do echo "${PAGE_URL}${file// /%20} \n "; done | tr '\n' '%'  | sed 's/%/%%/g')
+          FILES=$(find ./output2 -type f | sed 's|./output2/||g' | while read file; do echo "${PAGE_URL}${file// /%20} \n "; done | tr '\n' '%'  | sed 's/%/%%%/g')
           FILES_WITH_URLS=$(echo "$FILES" | sed 's/%/\n/g')
 
           MESSAGE="$FILES_WITH_URLS"
@@ -66,25 +66,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
-
-
-
-
-      - name: Generate file URLs with CRLF
-        id: generate_file_urls2
-        env:
-          LINE_TOKEN: ${{ secrets.SECRET_LINE_NOTIFY_API_TOKEN }} # LINE NotifyのアクセストークンをGitHub Secretsから取得
-        run: |
-          # GitHub PagesのデプロイメントURLを環境変数から取得
-          PAGE_URL="${{ steps.deployment.outputs.page_url }}"
-
-
-          FILES = "${{ needs.publish.outputs.file_list }}""
-          echo "$FILES"
-
-          FILES_WITH_URLS=$(echo "$FILES" | sed 's/%/\n/g')
-
-          MESSAGE="%20%20 $FILES_WITH_URLS"
-          curl -X POST https://notify-api.line.me/api/notify \
-          -H "Authorization: Bearer $LINE_TOKEN" \
-          -F "message=$MESSAGE"
