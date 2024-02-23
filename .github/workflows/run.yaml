@@ -38,7 +38,7 @@ jobs:
 
 
           REPOSITORY_NAME = "${{github.repository}}"
-          REPOSITORY_NAME=${REPOSITORY_NAME#*/}
+          # REPOSITORY_NAME=${REPOSITORY_NAME#*/}
 
           echo "$REPOSITORY_NAME"
 
