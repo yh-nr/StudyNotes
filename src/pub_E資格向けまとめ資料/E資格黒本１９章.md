@@ -1,10 +1,10 @@
-<!--
+---
 marp: true
 headingDivider: 1
-theme: A4-Manual
+theme: basic
 paginate: true
 footer: E資格範囲の数式まとめ
--->
+---
 
 # E資格黒本１９章
 
