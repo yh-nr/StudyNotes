@@ -15,7 +15,7 @@ jobs:
 
       - name: Generate index.html
         run: |
-          ls ${{steps.publish.outputs.paths }}
+          ls ${{steps.publish.outputs.paths }}/output2
 
 
       - name: Save outputs
