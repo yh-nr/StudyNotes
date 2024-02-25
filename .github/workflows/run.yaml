@@ -2,23 +2,7 @@ name: Convert Markdown into PDF
 on: [push]
 
 jobs:
-  check_commit:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check commit message
-        id: check_commit
-        run: |
-          if [[ "$(git log -1 --pretty=%B)" == nopub_* ]]; then
-            echo "Skip subsequent steps"
-            echo "skip=true" >> $GITHUB_ENV
-          else
-            echo "Continue with subsequent steps"
-            echo "skip=false" >> $GITHUB_ENV
-
-
   publish:
-    needs: check_commit
-    if: env.skip == 'false'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -34,12 +18,12 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: marp_output
-          path: ./output2
+          path: ./pub
 
 
       - uses: actions/upload-pages-artifact@v1
         with:
-          path: ./output2
+          path: ./pub
 
 
       - name: Generate file URLs with CRLF
@@ -55,7 +39,7 @@ jobs:
 
           PAGE_URL="https://${{github.repository_owner}}.github.io/${REPOSITORY_NAME}/"
 
-          FILES=$(find ./output2 -type f | sort | sed 's|./output2/||g' | while read file; do echo "${PAGE_URL}${file// /%20} "; done | tr '\n' '%'  | sed 's/%/%/g')
+          FILES=$(find ./pub -type f | sort | sed 's|./pub/||g' | while read file; do echo "${PAGE_URL}${file// /%20} "; done | tr '\n' '%'  | sed 's/%/%/g')
           FILES_WITH_URLS=$(echo " %　%◆以下のファイルがデプロイされました。%${{ github.event.head_commit.message }}%$FILES" | sed 's/%/\n/g')
 
           MESSAGE=$FILES_WITH_URLS
