@@ -2,10 +2,24 @@ name: Convert Markdown into PDF
 on: [push]
 
 jobs:
-  publish:
+  check_commit:
     runs-on: ubuntu-latest
-    outputs:
-        file_list: ${{ steps.generate_file_urls.outputs.file_list }}
+    steps:
+      - name: Check commit message
+        id: check_commit
+        run: |
+          if [[ "$(git log -1 --pretty=%B)" == nopub_* ]]; then
+            echo "Skip subsequent steps"
+            echo "skip=true" >> $GITHUB_ENV
+          else
+            echo "Continue with subsequent steps"
+            echo "skip=false" >> $GITHUB_ENV
+
+
+  publish:
+    needs: check_commit
+    if: env.skip == 'false'
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
