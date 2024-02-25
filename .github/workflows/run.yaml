@@ -7,6 +7,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Copy images from pub/*/images to output
+        run: |
+          while IFS= read -r folder; do
+            base_folder=$(basename $(dirname "$folder"))
+            mkdir -p "output/$base_folder/images"
+            cp -r "$folder"/* "output/$base_folder/images/"
+          done < <(find pub -type d -name images)
 
       - name: Convert Markdown into PDF
         uses: KoharaKazuya/marp-cli-action@v2
@@ -18,12 +25,12 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: marp_output
-          path: ./pub
+          path: ./output2
 
 
       - uses: actions/upload-pages-artifact@v1
         with:
-          path: ./pub
+          path: ./output2
 
 
       - name: Generate file URLs with CRLF
@@ -39,7 +46,7 @@ jobs:
 
           PAGE_URL="https://${{github.repository_owner}}.github.io/${REPOSITORY_NAME}/"
 
-          FILES=$(find ./pub -type f | sort | sed 's|./pub/||g' | while read file; do echo "${PAGE_URL}${file// /%20} "; done | tr '\n' '%'  | sed 's/%/%/g')
+          FILES=$(find ./output2 -type f | sort | sed 's|./output2/||g' | while read file; do echo "${PAGE_URL}${file// /%20} "; done | tr '\n' '%'  | sed 's/%/%/g')
           FILES_WITH_URLS=$(echo " %　%◆以下のファイルがデプロイされました。%${{ github.event.head_commit.message }}%$FILES" | sed 's/%/\n/g')
 
           MESSAGE=$FILES_WITH_URLS

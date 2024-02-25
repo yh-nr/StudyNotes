@@ -2,6 +2,6 @@ lang: ja-JP
 allowLocalFiles: true
 themeSet: ./styles
 inputDir: ./pub
-output: ./pub
+output: ./output2
 pdf: true
 html: true
