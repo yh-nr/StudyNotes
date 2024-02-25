@@ -23,6 +23,7 @@ math: katex # Latexを書けるよう設定
 - ハンダごて買う
 
 ## AI実装
+- 論文リストアップする
 
 - ゼロつく実装)[①](
 https://github.com/oreilly-japan/deep-learning-from-scratch)[②](https://github.com/oreilly-japan/deep-learning-from-scratch-2)[③](https://github.com/oreilly-japan/deep-learning-from-scratch-3)[④](https://github.com/oreilly-japan/deep-learning-from-scratch-4)[⑤](https://github.com/oreilly-japan/deep-learning-from-scratch-5)
@@ -34,3 +35,13 @@ https://github.com/oreilly-japan/deep-learning-from-scratch)[②](https://github
 - [統計検定２級](https://www.toukei-kentei.jp/)
 - 
 - 
+
+## Marp関連
+
+- mermaid試す（何ができるか）
+- 16/9テーマ作成
+- 背景画像テーマ作成
+
+## 仕事関連
+
+- タスク管理について学ぶ
