@@ -26,7 +26,7 @@ math: katex # Latexを書けるよう設定
 
 - ゼロつく実装
 - 強化学習実装
-- [AI実装検定]()
+- [AI実装検定](https://kentei.ai/)
 
 ## 統計の勉強
 
