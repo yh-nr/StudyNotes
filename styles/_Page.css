@@ -1,5 +1,5 @@
-/* @theme A4-Page */
-@import "base";
+/* @theme _Page */
+@import "_base";
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
 
 
@@ -19,6 +19,7 @@ h3 {font-size: 0.8em;padding-left: .8em;padding-bottom: 0em;margin: .25em 0em;}
 h4 {font-size: 0.7em;padding-left: 1.2em;padding-bottom: 0em;margin: .15em 0em;}
 h5 {font-size: 0.6em;padding-left: 1.6em;padding-bottom: 0em;margin: .1em 0em;}
 h6 {font-size: 0.5em;padding-left: 2em;padding-bottom: 0em;margin: .1em 0em;}
+p {font-size: 0.5em;padding-left: 2em;padding-bottom: 0em;margin: .1em 0em;}
 ul {font-size: 0.7em;}
 table {
         font-size: 0.7em;

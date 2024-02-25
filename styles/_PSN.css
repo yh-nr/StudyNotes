@@ -1,6 +1,6 @@
-/* @theme PSN */
-@import "base";
-@import "PSN_IMAGE";
+/* @theme _PSN */
+@import "_base";
+@import "_PSN_IMAGE";
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
 
 
@@ -74,7 +74,7 @@ h1 {
     background-size: 100% 10%;
     background-repeat: no-repeat;
     background-position: bottom left;
-    
+
 }
 
 h2 {

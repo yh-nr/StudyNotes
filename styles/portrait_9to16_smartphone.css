@@ -1,11 +1,11 @@
-/* @theme A4-Manual */
+/* @theme portrait_9to16_smartphone */
 
 @import 'default';
 
 section
 {
-  width: 210mm;
-  height: 297mm;
+  width: 174mm;
+  height: 310mm;
   justify-content: start;
   margin: 1px;
   padding: 50px 25px 50px 25px;
