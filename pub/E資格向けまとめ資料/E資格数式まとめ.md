@@ -4,9 +4,7 @@ headingDivider: 2
 theme: portrait_A4_note
 # theme: _styletest
 paginate: true
-
-style: div.mermaid{all:unset;}
-math: mathjax # Latexを書けるよう設定
+math: katex # Latexを書けるよう設定
 ---
 
 
@@ -55,15 +53,17 @@ $$ f(x;p) = p^x(1-p)^{1-x} $$
 ### ベルヌーイ分布の期待値
 <!-- _header: 確率・統計・情報理論 -->
 
-$$\begin{align}\mathbb{E}[X] &= \sum_{x=0}^{1}xp^x(1-p)^{1-x} \\&= p\end{align}$$
+$$\begin{aligned}\mathbb{E}[X] &= \sum_{x=0}^{1}xp^x(1-p)^{1-x} \\&= p\end{aligned}$$
 
 ### ベルヌーイ分布の分散
 <!-- _header: 確率・統計・情報理論 -->
 
-$$\begin{align}Var[X] &= \mathbb{E}[(X-\mathbb{E}[X])^2)] \\
-  Var[X] &= \mathbb{E}[X^2]-\mathbb{E}[X]^2 \\
-  &= \sum_{x=0}^{1}x^2p^x(1-p)^{1-x}-p^2 \\
-  &= p-p^2\\&=p(1-p)\end{align}$$
+$$\begin{aligned}
+Var[X] &= \mathbb{E}[(X-\mathbb{E}[X])^2)] \\
+Var[X] &= \mathbb{E}[X^2]-\mathbb{E}[X]^2 \\
+&= \sum_{x=0}^{1}x^2p^x(1-p)^{1-x}-p^2 \\
+&= p-p^2\\&=p(1-p)
+\end{aligned}$$
 
 ##### ◆ポイント・各要素の意味など
 - $x$　は成功か失敗を表す変数（$k$で表されることもある？）
@@ -79,19 +79,19 @@ $$f(x;p)=1-p$$
 <!-- _header: 確率・統計・情報理論 -->
 - カテゴリ分布とも呼ばれる
 
-$$\begin{align}
+$$\begin{aligned}
 f(x;p) &= \prod_{j=1}^{k}p_j^{x_j} \\
 (ただし、\sum_{j=1}^{k}p_j &=1、0\le p_j \le 1、j=1,....)
-\end{align}$$
+\end{aligned}$$
 
 ### マルチヌーイ分布の負の対数尤度
 <!-- _header: 確率・統計・情報理論 -->
 
-$$\begin{align} -\log L_D (p) &= -\log\prod_{i=1}^{n}f(x_i;p)　 \\
+$$\begin{aligned} -\log L_D (p) &= -\log\prod_{i=1}^{n}f(x_i;p)　 \\
   &= -\sum_{i=1}^{n}\log\prod_{j=1}^{k}p_j^{x_{ij}} \\
   &= -\sum_{i=1}^{n}\sum_{j=1}^{k}\log p_j^{x_{ij}} \\
   &= -\sum_{i=1}^{n}\sum_{j=1}^{k}x_{ij}\log p_j
-  \end{align}$$
+  \end{aligned}$$
 
 ##### ◆ポイント・各要素の意味など
 -
@@ -104,13 +104,13 @@ $$\large f(x; \mu,\sigma^2) = \frac{1}{\sqrt{2\pi\sigma^2}}\exp\left(-\frac{1}{2
 ### 正規分布の負の対数尤度
 <!-- _header: 確率・統計・情報理論 -->
 
-$$\begin{align} L(\mu) &= \prod_{i=1}^{n}f(x_i;\mu)\\
+$$\begin{aligned} L(\mu) &= \prod_{i=1}^{n}f(x_i;\mu)\\
 &=\prod_{i=1}^{n}\frac{1}{\sqrt{2\pi}}\exp\left(-\frac{1}{2}(x_i-\mu)^2\right)\\\\
  -\log L(\mu) &= -\log \left(\prod_{i=1}^{n}\frac{1}{\sqrt{2\pi}}\exp\left(-\frac{1}{2}(x_i-\mu)^2\right)\right)\\
 &=-\sum_{i=1}^{n}\log\left(\frac{1}{\sqrt{2\pi}}\exp\left(-\frac{1}{2}(x_i-\mu)^2\right)\right)\\
 &=-\sum_{i=1}^{n}\left(\log\left(\frac{1}{\sqrt{2\pi}}\right)-\frac{1}{2}(x_i-\mu)^2\right)\\
 &=-n\log\left(\frac{1}{\sqrt{2\pi}}\right)-\frac{1}{2}\sum_{i=1}^{n}(x_i-\mu)^2\\
-\end{align}$$
+\end{aligned}$$
 ##### ◆ポイント・各要素の意味など
 - $\sigma$：標準偏差
 - $\sigma^2$：分散
@@ -118,12 +118,12 @@ $$\begin{align} L(\mu) &= \prod_{i=1}^{n}f(x_i;\mu)\\
 
 ## 正規分布の最尤推定
 <!-- _header: 確率・統計・情報理論 -->
-$$\large\begin{align}
+$$\large\begin{aligned}
 \frac{d}{d\mu}g(\mu) &= \frac{1}{2}\sum_{i=1}^{n}\frac{d}{d\mu}(x_i-\mu)^2\\
 &= \frac{1}{2}\sum_{i=1}^{n}(-2(x_i-\mu))\\
 &= \sum_{i=1}^{n}\mu-\sum_{i=1}^{n}x_i\\
 &= n\mu-\sum_{i=1}^{n}x_i\\
-\end{align}$$
+\end{aligned}$$
 
 $$\large\hat\mu = \frac{1}{n}\sum_{i=1}^{n}x_i$$
 
@@ -216,12 +216,12 @@ $$\large\mathbb{E}(L) = \int\{y(x)-h(x)\}^2p(x)dx +\iint\{h(x)-t\}^2p(x,t)dxdt$$
 - ロジスティック回帰
 $$\large \frac{p(y=1|x)}{p(y=0|x)}=\frac{\hat y}{1-\hat y}$$
 
-$$\large\begin{align}
+$$\large\begin{aligned}
 \frac{\hat y}{1-\hat y} &= \frac{\frac{1}{1+\exp(-w^Tx-b)}}{1-\frac{1}{1+\exp(-w^Tx-b)}}\\
 &= \frac{1}{(1+\exp(-w^Tx-b))-1}\\
 &= \frac{1}{\exp(-w^Tx-b)}\\
 &= \exp(w^Tx-b)
-\end{align}$$
+\end{aligned}$$
 
 ##### ◆ポイント・各要素の意味など
 -
@@ -236,11 +236,11 @@ $$\large k(x,x')=\exp\left(-\frac{||x-x'||^2}{\beta}\right)$$
 
 ## 正則化
 <!-- _header: 　 --->
-$$\large\begin{align}
+$$\large\begin{aligned}
 &E+\lambda_2||w||_2^2 \\
 &E+\lambda_1||w||_1 \\
 &E+\lambda_1||w||_1+ \lambda_2||w||_2^2
-\end{align}$$
+\end{aligned}$$
 
 ##### ◆ポイント・各要素の意味など
 - リッジ
@@ -260,7 +260,7 @@ $$\large f(x) = \frac{1}{1+\exp(-x)}$$
 - 層数が多いNNでは勾配消失が起こりやすいため、近年あまり使われていない
 - どんな入力値に対しても0<y<1 の範囲をとる
 - $\exp(-x)$ は $e^{-x}$ の意、x=0の時1となるため、$f(x)=\frac{1}{2}$となる
-- ![](1699445836.webp)
+- ![](images/1699445836.webp)
 
 ## ReLU関数
 <!-- _header: 活性化関数 --->
@@ -275,7 +275,7 @@ np.maximum(0, x)
 - ニューラルネットワークの活性化関数
 - max(0,x)なので、y=xとy=0のうち大きい方という意味
 - x=0の時は微分できない
-- ![](Pasted%20image%2020240204172559.png)
+- ![](images/Pasted%20image%2020240204172559.png)
 
 ## ソフトマックス関数
 <!-- _header: 活性化関数 --->
@@ -381,7 +381,7 @@ params[key] += self.v[key]
 
 ##### SGDとの比較
 
-![width:300px](Pasted%20image%2020240204202513.png)![width:300px](Pasted%20image%2020240204202527.png)
+![width:300px](images/Pasted%20image%2020240204202513.png)![width:300px](images/Pasted%20image%2020240204202527.png)
 ## NesterovAG（※モーメンタム改良版）
 <!-- _header: 最適化アルゴリズム--->
 $$\large v_{t+1} = av_t - \eta\frac{\partial L}{\partial (\theta_t + av_t)}$$
@@ -471,7 +471,7 @@ params[key] -= self.lr * grads[key] / (np.sqrt(self.h[key] + 1e-7))
 ## Adam
 <!-- _header: 最適化アルゴリズム--->
 
-$$\begin{align}
+$$\begin{aligned}
 &m_{t+1} = \rho_1 m_t + (1-\rho_1)\frac{\partial L}{\partial \theta_t}\\
 &v_{t+1} = \rho_2 v_t + (1-\rho_2)\frac{\partial L}{\partial \theta_t}\odot
 \frac{\partial L}{\partial \theta_t}\\
@@ -479,7 +479,7 @@ $$\begin{align}
 &\hat v_{t+1} = \frac{v_{t+1}}{1-\rho_2^t}\\
 &\theta_{t+1} = \theta_t - \eta\frac{1}{\sqrt{\hat v_{t+1}}
 +\varepsilon}\odot \hat m_{t+1}
-\end{align}$$
+\end{aligned}$$
 
 ```python
 self.m[key] = self.rho1*self.m[key] + (1-self.rho1)*grads[key]
@@ -567,9 +567,10 @@ $$
 - $B_{pred}$：予測したバウンディングボックス領域
 - 式で見るより画像で覚えた方が簡単そう
 - IoUは結構厳しい（正方形を縦横に1/9ずつずらしただけで0.65まで下がる）
- ![width:320px](Pasted%20image%2020240211085307.png)![width:320px](Pasted%20image%2020240211085329.png)
 
-## Dice 係数
+![width:320px](images/Pasted%20image%2020240211085307.png)![width:320px](images/Pasted%20image%2020240211085329.png)
+
+### Dice 係数
 <!-- _header: セマンティックセグメンテーション--->
 
 $$\large
@@ -583,7 +584,7 @@ $$
 - $S_{pred}$：予測した領域
 - $IoU \leq Dice係数$
 
-![width:360px](Pasted%20image%2020240211085127.png)![width:360px](Pasted%20image%2020240211085142.png)
+![width:320px](images/Pasted%20image%2020240211085127.png)![width:320px](images/Pasted%20image%2020240211085142.png)
 
 ## AP
 <!-- _header: 物体検出--->
@@ -598,7 +599,7 @@ $$\large p_{interp}(r)=\max_{\tilde r\ge r}p(\tilde r)$$
 - $r$：recall（再現率）
 - $p_{interp}(r)$ 補完適合率 ある$r$における適合率を、$r$ 以上の $\tilde r$ における $p$ のうち、最大のもので置き換える。（下表参照）
 - 下の表に無い再現率0.7の時の補完適合率も同様のルールで0.57となる。
-![text](Pasted%20image%2020240211093245.png)
+![text](images/Pasted%20image%2020240211093245.png)
 
 ### mAPとは
 
@@ -626,14 +627,14 @@ $$\large p_{interp}(r)=\max_{\tilde r\ge r}p(\tilde r)$$
 ## LSTMの順伝播
 <!-- _header: RNN--->
 
-$$\begin{align}
+$$\begin{aligned}
 &F = \text{sigmoid}\left(X_tW_x^{(f)}+H_{t-1}W_h^{(f)}+b^{(f)}\right)\\
 &G = \text{tanh}\left(X_tW_x^{(g)}+H_{t-1}W_h^{(g)}+b^{(g)}\right)\\
 &I = \text{sigmoid}\left(X_tW_x^{(i)}+H_{t-1}W_h^{(i)}+b^{(i)}\right)\\
 &O = \text{sigmoid}\left(X_tW_x^{(o)}+H_{t-1}W_h^{(o)}+b^{(o)}\right)
-\end{align}$$
+\end{aligned}$$
 
-![width:300px](Pasted%20image%2020240211120320.png)
+![width:300px](images/Pasted%20image%2020240211120320.png)
 
 ##### ◆ポイント・各要素の意味など
 
@@ -652,14 +653,14 @@ $$\begin{align}
 <!-- _header: RNN--->
 
 - LSTMをシンプルにして計算量を減らした
-$$\begin{align}
+$$\begin{aligned}
 &R = \text{sigmoid}\left(X_tW_x^{(r)}+H_{t-1}W_h^{(r)}+b^{(r)}\right)\\
 &Z = \text{sigmoid}\left(X_tW_x^{(z)}+H_{t-1}W_h^{(z)}+b^{(z)}\right)\\
 &\tilde H = \text{tanh}\left\{X_tW_x^{(\tilde h)}+(R\odot H_{t-1})W_h^{(\tilde h)}
 +b^{(\tilde h)}\right\}\\
 &H_t = Z\odot H_{t-1}+(1-Z)\odot\tilde H
-\end{align}$$
-![width:240px](Pasted%20image%2020240211133922.png)
+\end{aligned}$$
+![width:240px](images/Pasted%20image%2020240211133922.png)
 
 ##### ◆ポイント・各要素の意味など
 
@@ -683,10 +684,12 @@ $$
 ##### dilated causal convolutionの方が大事そう
 
 - コーザル畳み込み
-![width:240px](Pasted%20image%2020240211143630.png)
+
+![width:240px](images/Pasted%20image%2020240211143630.png)
+
 - ダイレイト・コーザル畳み込み
-![width:240px](Pasted%20image%2020240211144107.png)
--
+
+![width:240px](images/Pasted%20image%2020240211144107.png)
 
 ## TransformerのScaled Dot-Product Attention
 <!-- _header: 自然言語処理・音声認識--->
@@ -707,10 +710,10 @@ $$\large\text{Attention}(Q,K,V) = \text{softmax}(QK^T)V$$
 ## TransformerのPositional Encoding
 <!-- _header: 自然言語処理・音声認識--->
 
-$$\large\begin{align}
+$$\large\begin{aligned}
 &PE_(pos,2i) = \text{sin}\left(\frac{pos}{10000^{2i/d_{model}}}\right)\\
 &PE_(pos,2i+1) = \text{cos}\left(\frac{pos}{10000^{2i/d_{model}}}\right)
-\end{align}$$
+\end{aligned}$$
 
 ##### ◆ポイント・各要素の意味など
 
@@ -722,7 +725,7 @@ $$\large\begin{align}
 - $i$：トークン埋め込み後のベクトルにおける各次元のインデックス値
 - $d_{model}$：トークン埋め込み後のベクトルの次元数
 - 解説記事：[Positional Encodingを理解したい](https://qiita.com/snsk871/items/93aba7ad74cace4abc62)
-![](Pasted%20image%2020240211155812.png)
+![](images/Pasted%20image%2020240211155812.png)
 - $pos$ を$10000^{2i/d_{model}}$で割る意味：sinやcosは周期関数なので、異なる$pos$に対して同じ値をとる可能性がある。そのため10000という大きい数字で割ることで、周波数を低くして、長い文章に対しても同じ値を返さない様にしている。
 - $10000^{2i/d_{model}}$の指数の意味：埋め込みベクトルの次元数ごとにスケールを変えている
 
@@ -744,9 +747,9 @@ $\underset{\alpha} {\operatorname{argmin}} p(x|y)p(y)$を解くのが生成モ�
 <!-- _header: 生成モデル--->
 
 - [Auto-Encoding Variational Bayes](https://arxiv.org/abs/1312.6114)
-$$\begin{align}
+$$\begin{aligned}
 &-\log p(x) \le -L = \mathbb{E}_{z\sim p(z|x)}[-\log p(x|z)] + \int\log\left(\frac{p(z|x)}{p(z)}\right)p(z|x)dz
-\end{align}$$
+\end{aligned}$$
 
 ##### ◆ポイント・各要素の意味など
 
@@ -785,7 +788,7 @@ $$
 ## ベルマン方程式
 <!-- _header: 強化学習 --->
 
-$$\begin{align}
+$$\begin{aligned}
 \text{状態価値関数：　}V^\pi(s) &= \mathbb{E}[G_t|S_t = s]\\\\
 &= \mathbb{E}[R_{t+1}+\gamma G_{t+1}|S_t = s]\\\\
 &= \sum_a\pi(a|s)\sum_{s',r}P(s',r|s,a)[r+\gamma\mathbb{E}
@@ -795,7 +798,7 @@ $$\begin{align}
 \text{行動価値関数：　}Q^\pi(s,a) &= \mathbb{E}[R_{t+1}
 +\gamma V^\pi(S_{t+1})|S_t = s,A_t = a]\\\\
 &= \sum_{s',r}\textcolor{green}{P(s',r|s,a)}\textcolor{blue}{[r+\gamma V^\pi(s')]}
-\end{align}$$
+\end{aligned}$$
 
 ##### ◆ポイント・各要素の意味など
 
@@ -845,7 +848,7 @@ $$
 
 - 方策勾配法において、方策$\pi$のパラメータ$\theta$を更新するための期待報酬$J(\theta)$を表す定理
 
-$$\begin{align}
+$$\begin{aligned}
 
 \nabla_\theta J(\theta) &=
 \sum \textcolor{blue}{d^{\pi_\theta}(s)} \sum_a
@@ -869,16 +872,16 @@ $$\begin{align}
 \textcolor{darkgreen}{\nabla_\theta\log\pi_\theta(a_t^n|s_t^n)}
 \textcolor{red}{Q^{\pi_\theta}(s_t^n, a_t^n)} \\\\
 
-\end{align}$$
+\end{aligned}$$
 
-$$\begin{align}
+$$\begin{aligned}
 
 \textbf{合成関数の偏微分：}&\nabla_\theta\log \pi_\theta(a|s) =
 \textcolor{indigo} {\frac{\partial\pi_\theta(a|s)}{\partial\theta}} \frac{1}{\pi_\theta(a|s)}\\
 
 \textcolor{navy}{\textbf{モンテカルロ近似：}}&\mathbb{E}_{\pi_\theta}[f(s,a)] \approx \frac{1}{N}\sum_{n=1}^{N}\frac{1}{T}\sum_{t=1}^{T}f(s^n_t,a^n_t)
 
-\end{align}$$
+\end{aligned}$$
 
 ##### ◆ポイント・各要素の意味など
 
@@ -937,7 +940,7 @@ $$\large L=\frac{\lambda_1T^2L_{soft}+\lambda_2L_{hard}}{\lambda_1+\lambda_2}$$
 
 ##### ◆各評価指標
 
-$$ \begin{align}
+$$ \begin{aligned}
 
 正解率&& accuracy(X) &=
 \frac {\textcolor{green}{TP} + \textcolor{blue}{TN}}
@@ -952,11 +955,11 @@ FPR&& FPR &= \frac {\textcolor{purple}{FP}}{\textcolor{purple}{FP} + \textcolor{
 F値&& F-measure(X) &=
 \frac {2 \times precision(X) \times recall(X)}{precision(X) + recall(X)}
 
-\end{align}$$
+\end{aligned}$$
 
 ##### ◆ROC曲線
 
-![width:240px](ROC.png)
+![width:240px](images/ROC.png)
 
 ## 強化学習
 
@@ -977,7 +980,7 @@ F値&& F-measure(X) &=
 - 機械翻訳の評価方法
 - 「プロの翻訳者の訳と近ければ近いほどその機械翻訳の精度は高い」が前提
 
-$$\begin{align}
+$$\begin{aligned}
 BLEU &= BP\times\exp\left(\sum^N_{n=1}w_n\log{p_n}\right)\\\\
 BP &=
 \begin{cases}
@@ -985,11 +988,11 @@ BP &=
 e^{1-r/c} & \text{otherwise}
 \end{cases}
 
-\end{align}$$
+\end{aligned}$$
 
 - $BP$：ペナルティ項、機械翻訳文の単語数が少ない場合に過大評価される事を避ける
 <style scoped>img { display: block; margin-left:auto;margin-right: auto; width:50%;}</style>
-![](Pasted%20image%2020240217110120.png)
+![](images/Pasted%20image%2020240217110120.png)
 - $w_n$：重み
 - $p_n$：n-gram適合率
 - $r$：人の作成した翻訳文の単語数
@@ -997,7 +1000,7 @@ e^{1-r/c} & \text{otherwise}
 
 ## 双方向RNNのイメージ
 <style scoped>img { display: block; margin-left: auto; margin-right: auto; width:50%;}</style>
-![](Pasted%20image%2020240217111159.png)
+![](images/Pasted%20image%2020240217111159.png)
 
 ##### ポイント
 - 時間方向の層と、逆方向の層は直接結合していない。
@@ -1023,14 +1026,14 @@ e^{1-r/c} & \text{otherwise}
  - デプスワイズとポイントワイズを組み合わせたもの
 
 ##### ダイレイト畳み込み（WaveNetのやつ）
-![](images/Pasted%20image%2020240217122528.png)
+![](images/images/Pasted%20image%2020240217122528.png)
 
 ## 計算グラフ
 
 ##### シグモイド関数の逆伝播
 - [次のノードの順伝播時の出力]を[このノードの順伝播時の出力]で微分$\times$次ノードからの逆伝播
 
-![](Pasted%20image%2020240217190046.png)
+![](images/Pasted%20image%2020240217190046.png)
 
 ### 初期化戦略
 
@@ -1146,24 +1149,3 @@ $$
 43.25 \\
 \end{bmatrix}
 $$
-
-## テスト
-
-<div class="mermaid">
-gantt
-    title A Gantt Diagram
-    dateFormat  YYYY-MM-DD
-    section Section
-    A task           :a1, 2014-01-01, 30d
-    Another task     :after a1  , 20d
-    section Another
-    Task in sec      :2015-01-12  , 12d
-    another task      : 24d
-</div>
-
-<script type="module">
-import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.0.0/dist/mermaid.esm.min.mjs';
-mermaid.initialize({ startOnLoad: true });
-window.addEventListener('vscode.markdown.updateContent',
-function() { mermaid.init() });
-</script>
