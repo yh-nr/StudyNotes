@@ -7,12 +7,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Copy images from pub/*/images to output
+      - name: Copy images from pub/*/images to output2
         run: |
           while IFS= read -r folder; do
             base_folder=$(basename $(dirname "$folder"))
-            mkdir -p "output/$base_folder/images"
-            cp -r "$folder"/* "output/$base_folder/images/"
+            mkdir -p "output2/$base_folder/images"
+            cp -r "$folder"/* "output2/$base_folder/images/"
           done < <(find pub -type d -name images)
 
       - name: Convert Markdown into PDF
