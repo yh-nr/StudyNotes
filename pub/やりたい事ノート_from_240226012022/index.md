@@ -26,10 +26,10 @@ math: katex # Latexを書けるよう設定
 
 - ゼロつく実装
 - 強化学習実装
-- AI実装検定
+- [AI実装検定]()
 
 ## 統計の勉強
 
-- 統計検定２級
+- [統計検定２級](https://www.toukei-kentei.jp/)
 - 
 - 
