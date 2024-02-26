@@ -1,6 +1,7 @@
 /* @theme _styletest */
 
 @import 'default';
+@import '_bg_spyder';
 
 section
 {
