@@ -130,3 +130,28 @@ MDエディタ
 [部室（Skype）](https://join.skype.com/wK2mGYOpXwct)
 
 ### [マナビDXクエスト](https://www.notion.so/DX-e716159871304693b22d70493f165378?pvs=21)
+
+### 運動不足を解消する会
+
+- ステッパー
+- パワーボール
+- スクワット
+
+### [E資格の勉強](https://www.notion.so/E-9a2cac47ad3f4c6dbfd3e437c149b45b?pvs=21)
+
+手書きのノートをスマホカメラで撮影後台形補正して画像として保存したい
+
+- googleドライブはPDFになる
+
+### [業務効率化アプリ作成](https://www.notion.so/bcca49c42b934eb1926653ad7277e4e4?pvs=21)
+
+- PyInstallerでexe化してみた
+- ドラッグでファイル名一覧取得
+- ドラッグで拡張子なしファイル名一覧取得
+- ドラッグでフルパス一覧取得
+- ドラッグでPDFをページ毎に分割
+- ドラッグでPDFを画像に変換
+    - pdf2imageはPopplerユーティリティのインストールが必要
+    - *PyMuPDF*
+- 設計コピペでエクセル化アプリ
+- 動画をgifにする
