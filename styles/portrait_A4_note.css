@@ -4,6 +4,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
 @import '_bg_spyder';
 
+
+
+section {
+  background-image: var(--background-image);
+  background-repeat: no-repeat;
+  background-position: 3% 98%;
+  background-size: 20%; /* 画像のサイズを原寸の50%に指定 */
+}
+
+
 section
 {
   width: 210mm;
