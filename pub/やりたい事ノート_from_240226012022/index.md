@@ -111,3 +111,22 @@ https://github.com/oreilly-japan/deep-learning-from-scratch)[②](https://github
         - E資格の勉強
     - [勉強の記録](https://www.notion.so/82df1b28b8bd4b93867eef64ff682191?pvs=21)をつける
 - [ ]  副業申請
+
+
+## In Progress
+
+### Qiitaにアウトプット
+
+MDエディタ
+
+### [リマインド機能付きのブックマーク集としてNotionデータベースを利用する](https://www.notion.so/Notion-59e190b0b52b4320967cbbfe4dac11b8?pvs=21)
+
+### ラズパイ部の活動
+
+[202303 なるせ（ラズパイデビュー＆ガチャガチャ動かしたい）](https://www.notion.so/202303-23b800a7b7a445efbb64b98b9a1dcb0f?pvs=21)
+
+[ラズパイ部 部誌](https://www.notion.so/2beac71586a740b890e87e619e6db8f9?pvs=21)
+
+[部室（Skype）](https://join.skype.com/wK2mGYOpXwct)
+
+### [マナビDXクエスト](https://www.notion.so/DX-e716159871304693b22d70493f165378?pvs=21)
