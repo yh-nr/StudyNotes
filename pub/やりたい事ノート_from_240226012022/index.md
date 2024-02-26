@@ -2,9 +2,8 @@
 marp: true
 headingDivider: 2
 theme: portrait_A4_note
-# theme: _styletest
 paginate: true
-math: katex # Latexを書けるよう設定
+math: katex
 ---
 
 <!-- # やりたい事ノート -->
@@ -25,10 +24,11 @@ math: katex # Latexを書けるよう設定
 ## AI実装
 - 論文リストアップする
 
-- ゼロつく実装)[①](
+- ゼロつく実装[①](
 https://github.com/oreilly-japan/deep-learning-from-scratch)[②](https://github.com/oreilly-japan/deep-learning-from-scratch-2)[③](https://github.com/oreilly-japan/deep-learning-from-scratch-3)[④](https://github.com/oreilly-japan/deep-learning-from-scratch-4)[⑤](https://github.com/oreilly-japan/deep-learning-from-scratch-5)
 - 強化学習実装
 - [AI実装検定](https://kentei.ai/)
+- 論文リストアップ
 
 ## 統計の勉強
 
