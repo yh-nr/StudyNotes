@@ -1,6 +1,7 @@
 /* @theme portrait_A4_note */
 
 @import 'default';
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
 
 section
 {
@@ -13,6 +14,8 @@ section
   background-color:#dee4ee;
   line-height: 105%;
 }
+
+section, header, footer {font-family: 'Noto Sans JP', sans-serif;}
 
 section h2,h3 {
   font-size: 32px;
@@ -37,7 +40,7 @@ section h2 strong{color: rgb(255, 0, 0) ;}
 section h3 strong{color: rgb(255, 0, 0) ;}
 section strong{color: purple}
 
-section.title {background-color: #120b6b;color: #333;}
+section.title {background-image: initial; background-color: #120b6b;color: #333;}
 section.title h1{background-color: #f0f0f0; color: #120b6b;}
 section.title footer{display: none;}
 

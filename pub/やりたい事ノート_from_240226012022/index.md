@@ -27,17 +27,18 @@ math: katex
 https://github.com/oreilly-japan/deep-learning-from-scratch)[②](https://github.com/oreilly-japan/deep-learning-from-scratch-2)[③](https://github.com/oreilly-japan/deep-learning-from-scratch-3)[④](https://github.com/oreilly-japan/deep-learning-from-scratch-4)[⑤](https://github.com/oreilly-japan/deep-learning-from-scratch-5)
 - 強化学習実装
 - [AI実装検定](https://kentei.ai/)
-- 論文リストアップ
-  - seq2seq
-  - Transformer
-  - HRED
-  - Word2Vec (Skip-gram)
-  - VGG
-  - GoogLeNet
-  - ResNet/WideResNet
-  - MobileNet
-  - EfficientNet
-  - DenseNet
+  - 合格体験記的なやつを調査
+  - 論文リストアップ
+    - seq2seq
+    - Transformer
+    - HRED
+    - Word2Vec (Skip-gram)
+    - VGG
+    - GoogLeNet
+    - ResNet/WideResNet
+    - MobileNet
+    - EfficientNet
+    - DenseNet
 
 ## 統計の勉強
 
