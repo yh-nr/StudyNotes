@@ -1,6 +1,7 @@
 /* @theme portrait_9to16_smartphone */
 
 @import 'default';
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
 
 section
 {
@@ -14,76 +15,55 @@ section
   line-height: 105%;
 }
 
-section pre {
-  font-size: .8rem;
-  margin: 0.3rem 0;
-  padding: 0.5rem 0.5rem;
-  background-color: #000d11;
-  color: #e3e3e3;
-}
+section, header, footer {font-family: 'Noto Sans JP', sans-serif;}
 
-section p
-{
-  font-size: 20px ;
-  line-height: none;
-}
-section ul
-{
-  font-size: 18px ;
-  line-height: none;
-}
-section h6
-{
-  font-size: 20px ;
-  line-height: none;
-}
-section h3,h4
-{
-  font-size: 32px ;
+section h2,h3 {
+  font-size: 32px;
   padding: 5px 15px 5px 15px;
   color: #ffffff;
   background-color: #120b6b;
   line-height: none;
 }
 
-section h1,h2 {
+section h1 {
   position: absolute; /* 絶対位置を指定 */
   left: 0px; /* 親要素（section）の左端からの位置 */
   top: 50%; /* 親要素の上端から50%の位置 */
   transform: translateY(-50%); /* Y軸に沿って-50%移動して中央に配置 */
   width: 100%;
   height: 160px; /* 具体的な高さを指定 */
-  font-size: 60px;
-  padding: 0px 50px;
-  color: #ffffff;
-  background-color: #120b6b;
-  line-height: 160px; /* 高さと同じ値に設定して中央揃え */
 }
-
-
 
 
 section h1 strong{color: rgb(255, 0, 0) ;}
 section h2 strong{color: rgb(255, 0, 0) ;}
 section h3 strong{color: rgb(255, 0, 0) ;}
+section strong{color: purple}
 
-section strong
-{
-  color: purple
-}
+section.title {background-image: initial; background-color: #120b6b;color: #333;}
+section.title h1{background-color: #f0f0f0; color: #120b6b;}
+section.title footer{display: none;}
 
 
 
-section.title {
-  background-color: #120b6b;
-  color: #333;
-}
 
-section.title h1{
-  background-color: #f0f0f0;
-  color: #120b6b;
-}
+h1, h2, h3 {color: #ffffff; background-color: #120b6b;}
+h1 {font-size: 60px; line-height: 160px; padding: 0px 50px;}
+h2 {font-size: 32px; line-height: none; margin: 0px 0px 12px 0px; padding: 8px 12px}
+h3 {font-size: 32px; line-height: none; margin: 12px 0px 12px 0px; padding: 8px 12px}
 
-section.title footer{
-  display: none;
-}
+h4, h5, h6 {color: #120b6b}
+
+/* h3 {font-size: 36px; line-height: none; margin: 0px 0px; padding: 0px 0px;} */
+h4 {font-size: 28px; line-height: none; margin: 0px 0px; padding: 8px 25px 8px 15px;}
+h5 {font-size: 24px; line-height: none; margin: 0px 0px; padding: 7px 25px 7px 44px;}
+h6 {font-size: 20px; line-height: none; margin: 0px 0px; padding: 6px 25px 6px 69px;}
+
+p  {font-size: 20px; line-height: none; margin: 0px 0px; padding: 6px 25px 6px 69px;}
+ul, ol {font-size: 20px; line-height: none; margin: 0px 0px; padding: 6px 25px 6px 93px;}
+ul ul,ol ol {font-size: 20px; line-height: none; margin: 0px 0px; padding: 6px 25px 6px 24px;}
+
+pre {font-size: 20px; line-height: none; margin: 18px 18px; padding: 18px 18px;}
+pre {background-color: #000d11; color: #e3e3e3;}
+
+
