@@ -28,23 +28,22 @@ https://github.com/oreilly-japan/deep-learning-from-scratch)[②](https://github
 - 強化学習実装
 - [AI実装検定](https://kentei.ai/)
 - 論文リストアップ
-    - seq2seq
-    - Transformer
-    - HRED
-    - Word2Vec (Skip-gram)
-    - VGG
-    - GoogLeNet
-    - ResNet/WideResNet
-    - MobileNet
-    - EfficientNet
-    - DenseNet
- 
+  - seq2seq
+  - Transformer
+  - HRED
+  - Word2Vec (Skip-gram)
+  - VGG
+  - GoogLeNet
+  - ResNet/WideResNet
+  - MobileNet
+  - EfficientNet
+  - DenseNet
 
 ## 統計の勉強
 
 - [統計検定２級](https://www.toukei-kentei.jp/)
-- 
-- 
+-
+-
 
 ## Marp関連
 
