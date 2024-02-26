@@ -201,3 +201,5 @@ MDエディタ
             - LINE送信（リプライ）を行う。
 
 ### [イレクターNEWデスク2023](https://www.notion.so/NEW-2023-8320425ee9594014895245a07a5833a4?pvs=21)
+
+![Image](./26b2b29dede0ddf062ce1ac84004fbc8.png)
