@@ -155,3 +155,25 @@ MDエディタ
     - *PyMuPDF*
 - 設計コピペでエクセル化アプリ
 - 動画をgifにする
+
+
+## DONE
+
+### 自分の為のLineボット
+
+### Lineボット基礎
+
+[はじめてのLINEBOTの作り方　秘書ボットを作ろう](https://www.udemy.com/course/line-bot-x/)
+
+- [Line Developpers](https://developers.line.biz/console/)
+- [Google Apps Script（LB・ジェームス・プロジェクト）](https://script.google.com/home/projects/1oOvchfocqplpzwN_gIAfqwLhpG2lweN9uT-YXVI84Hxx-cbo0tPqSG1B/edit)
+- [スクリプトプロパティの使い方](https://blog.take-it-easy.site/gas/using-script-properties-in-gas/)
+- [ログエクスプローラ（GCP）の使い方](https://console.cloud.google.com/logs/query;cursorTimestamp=2024-01-03T02:29:59.674Z?authuser=0&project=lbjamesproject)
+    - https://www.hidetoshl.com/gas-gcp/
+
+### 後で読む仕組み作り
+
+[](https://www.notion.so/ad33b8d83d1a4b7fb92b35d5b2cabdf9?pvs=21) 
+
+- Notion API
+    -
