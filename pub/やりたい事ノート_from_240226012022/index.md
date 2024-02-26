@@ -58,17 +58,17 @@ https://github.com/oreilly-japan/deep-learning-from-scratch)[②](https://github
 
 ## Notionから転記 **Wish list**
 
-##### 焼き肉アプリ制作
+###### 焼き肉アプリ制作
 
-##### 統計検定２級をとる
+###### 統計検定２級をとる
 
 - まずは３級？
 - [２級](https://www.toukei-kentei.jp/exam/grade2/)、
 - [３級](https://www.toukei-kentei.jp/exam/grade3/)、
 
-##### [AI実装検定](https://kentei.ai/)
+###### [AI実装検定](https://kentei.ai/)
 
-##### Pythonでケミドロみたいな事
+###### Pythonでケミドロみたいな事
 
 - RDkitを試す
 
@@ -82,16 +82,16 @@ https://github.com/oreilly-japan/deep-learning-from-scratch)[②](https://github
     [ABC News](https://www.youtube.com/@ABCNews/streams)
     [LiveNOW from FOX](https://www.youtube.com/@livenowfox/streams)
     
-##### 家計簿アプリリニューアル
+###### 家計簿アプリリニューアル
 
 - 
 
-##### 砥石で包丁研ぐ
+###### 砥石で包丁研ぐ
 
 - ~~ルービックキューブ全面揃える~~
-    - キューブインキューブ
+- キューブインキューブ
 
-##### 母さんのアルバム整理
+###### 母さんのアルバム整理
 
 
 ## アイデア
