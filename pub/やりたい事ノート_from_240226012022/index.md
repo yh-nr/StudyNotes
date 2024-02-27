@@ -1,7 +1,8 @@
 ---
 marp: true
 headingDivider: 2
-theme: portrait_A4_note
+theme: portrait_16to9
+# theme: _styletest
 paginate: true
 math: katex
 ---
@@ -24,7 +25,7 @@ math: katex
 - ツイッターのいいねをNotionに取り込む
 - 後で読むピックアップ時に、URLなどもif文にしてアイデアも書き込める様にする
 - LINEボットにアイデアを投げたら、
-- 
+-
 
 ## ラズパイ部
 

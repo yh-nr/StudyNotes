@@ -1,0 +1,46 @@
+/* @theme _base_naru01 */
+
+
+/* フォントについて */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
+section, header, footer {font-family: 'Noto Sans JP', sans-serif;}
+
+
+/* スライドの配置とパディング */
+section {justify-content: start; padding: calc(2.5% + 24px) 2.5%;}
+
+
+/* 強調表示のフォントカラー */
+strong{color: rgb(255, 0, 0) ;}
+
+
+/* タイトルスライドの設定 */
+section.title {background-image: initial; background-color: #120b6b;color: #333;}
+section.title h1{background-color: #f0f0f0; color: #120b6b;}
+section.title footer{display: none;}
+
+
+/* H1見出しは１ページ使って表示する */
+h1 {position: absolute; left: 0px; top: 50%; transform: translateY(-50%); width: 100%; height: 160px;}
+
+
+h1, h2, h3 {color: #ffffff; background-color: #120b6b;}
+h1 {font-size: 60px; line-height: 160px; padding: 0px 50px;}
+h2 {font-size: 32px; border-radius: 7.5px; line-height: none; margin: 0px 0px 12px 0px; padding: 8px 12px}
+h3 {font-size: 32px; border-radius: 7.5px; line-height: none; margin: 12px 0px 12px 0px; padding: 8px 12px}
+
+
+h4, h5, h6 {color: #120b6b}
+/* h3 {font-size: 36px; line-height: none; margin: 0px 0px; padding: 0px 0px;} */
+h4 {font-size: 28px; line-height: none; margin: 0px 0px; padding: 8px 25px 8px 15px;}
+h5 {font-size: 24px; line-height: none; margin: 0px 0px; padding: 7px 25px 7px 44px;}
+h6 {font-size: 20px; line-height: none; margin: 0px 0px; padding: 6px 25px 6px 69px;}
+
+
+p  {font-size: 20px; line-height: none; margin: 0px 0px; padding: 6px 25px 6px 69px;}
+ul, ol {font-size: 20px; line-height: none; margin: 0px 0px; padding: 6px 25px 6px 93px;}
+ul ul,ol ol {font-size: 20px; line-height: none; margin: 0px 0px; padding: 6px 25px 6px 24px;}
+
+
+pre {font-size: 20px; line-height: none; margin: 18px 18px; padding: 18px 18px;}
+pre {background-color: #000d11; color: #e3e3e3;}
