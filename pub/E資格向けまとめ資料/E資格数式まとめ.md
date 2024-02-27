@@ -1,7 +1,7 @@
 ---
 marp: true
 headingDivider: 2
-theme: portrait_16to9_smartphone
+theme: portrait_9to16_smartphone
 # theme: portrait_A4_note
 paginate: true
 math: katex # Latexを書けるよう設定
