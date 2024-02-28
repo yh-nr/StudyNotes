@@ -28,11 +28,6 @@ jobs:
           path: ./output2
 
 
-      - uses: actions/upload-pages-artifact@v1
-        with:
-          path: ./output2
-
-
       - name: Generate file URLs with CRLF
         id: generate_file_urls
         env:
@@ -58,7 +53,12 @@ jobs:
           -H "Authorization: Bearer $LINE_TOKEN" \
           -F "message=$MESSAGE"
 
+          html_content="<html>$MESSAGE</html>"
+          echo "$html_content" > ./output2/index.html
 
+      - uses: actions/upload-pages-artifact@v1
+        with:
+          path: ./output2
 
 
   deploy:
