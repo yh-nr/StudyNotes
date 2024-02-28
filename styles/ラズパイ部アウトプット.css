@@ -1,4 +1,4 @@
-/* @theme portrait_16to9 */
+/* @theme ラズパイ部アウトプット */
 
 @import 'default';
 @import '_base_naru02';
@@ -10,13 +10,13 @@ A4の短辺(210mm)は96dpiで794px
 /* A4 portrait */
 /* section{width: 794px;  height: 1123px;} */
 /* 16:9 portrait */
-section{width: 794px;  height: 1412px;}
+/* section{width: 794px;  height: 1412px;} */
 /* 4:3 portrait */
 /* section{width: 794px;  height: 1059px;} */
 /* A4 landscape */
 /* section{width: 1123px;  height: 794px;} */
 /* 9:16 landscape */
-/* section{width: 1412px;  height: 794px;} */
+section{width: 1412px;  height: 794px;}
 /* 3:4 landscape */
 /* section{width: 1059px;  height: 794px;} */
 
@@ -25,10 +25,10 @@ section{width: 794px;  height: 1412px;}
 :root {
     --base-font-size: 28px;
     --indent-coef: 0.4;
-    --fontsize-coef: 0.14;
+    --fontsize-coef: 0.2;
 }
 
 
 /* スライドの背景について */
-@import '_bg_naruseyohei';
-/* @import '_bg_spyder'; */
+/* @import '_bg_naruseyohei'; */
+@import '_bg_spyder';

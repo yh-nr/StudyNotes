@@ -58,3 +58,8 @@ pre {font-size: var(--base-font-size); line-height: none; margin: 18px 18px; pad
 pre {background-color: #000d11; color: #e3e3e3;}
 
 table {font-size: var(--base-font-size); line-height: none; margin: 0px 0px; padding: 6px 6px 6px calc(var(--base-font-size) * var(--indent-coef) * 6);}
+
+
+/* .two-column-viewクラスを持つ要素に適用されるスタイル */
+section .twocolumnview {display: flex;}
+section .twocolumnview > * {flex: 1; margin: 15px 30px;}
