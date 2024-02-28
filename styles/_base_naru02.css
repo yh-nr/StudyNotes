@@ -1,0 +1,60 @@
+/* @theme _base_naru02 */
+
+
+/* フォントについて */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
+section, header, footer {font-family: 'Noto Sans JP', sans-serif;}
+
+
+/* ベースフォントサイズを指定 */
+:root {
+    --base-font-size: 16px;
+    --fontsize-coef: 0.2;
+    --indent-coef: 0.5;
+}
+
+
+/* スライドの配置とパディング */
+section {justify-content: start; padding: 30px;}
+
+
+/* ヘッダー、フッターの位置決めとフォントサイズ */
+footer {position: absolute; bottom: 6px; left: 36px; font-size: 16px;}
+header {position: absolute; top: 6px; left: 36px; font-size: 16px;}
+
+
+/* 強調表示のフォントカラー */
+strong{color: rgb(255, 0, 0) ;}
+
+
+/* タイトルスライドの設定 */
+section.title {background-image: initial; background-color: #120b6b;color: #333;}
+section.title h1{background-color: #f0f0f0; color: #120b6b;}
+section.title footer{display: none;}
+
+
+/* H1見出しは１ページ使って表示する */
+h1 {position: absolute; left: 0px; top: 50%; transform: translateY(-50%); width: 100%; height: 160px;}
+
+
+h1, h2, h3 {color: #ffffff; background-color: #120b6b;}
+h1 {font-size: 60px; line-height: 160px; padding: 0px 50px;}
+h2 {font-size: calc(var(--base-font-size) * (1 + var(--fontsize-coef) * 3)); border-radius: 7.5px; line-height: none; margin: 0px 0px 12px 0px; padding: 8px calc(var(--base-font-size) * var(--indent-coef) * 2)}
+h3 {font-size: calc(var(--base-font-size) * (1 + var(--fontsize-coef) * 3)); border-radius: 7.5px; line-height: none; margin: 12px 0px 12px 0px; padding: 8px calc(var(--base-font-size) * var(--indent-coef) * 2)}
+
+
+h4, h5, h6 {color: #120b6b}
+/* h3 {font-size: calc(var(--base-font-size) + 16px); line-height: none; margin: 0px 0px; padding: 0px 0px;} */
+h4 {font-size: calc(var(--base-font-size) * (1 + var(--fontsize-coef) * 2)); line-height: none; margin: 0px 0px; padding: 6px 6px 6px calc(var(--base-font-size) * var(--indent-coef) * 2);}
+h5 {font-size: calc(var(--base-font-size) * (1 + var(--fontsize-coef) * 1)); line-height: none; margin: 0px 0px; padding: 6px 6px 6px calc(var(--base-font-size) * var(--indent-coef) * 4);}
+h6 {font-size: var(--base-font-size); line-height: none; margin: 0px 0px; padding: 6px 6px 6px calc(var(--base-font-size) * var(--indent-coef) * 6);}
+
+
+p  {font-size: var(--base-font-size); line-height: none; margin: 0px 0px; padding: 6px 6px 6px calc(var(--base-font-size) * var(--indent-coef) * 6);}
+ul, ol {font-size: var(--base-font-size); line-height: none; margin: 0px 0px; padding: 6px 6px 6px calc(var(--base-font-size) * var(--indent-coef) * 8);}
+ul ul,ol ol {font-size: var(--base-font-size); line-height: none; margin: 0px 0px; padding: 6px 6px 6px calc(var(--base-font-size) * var(--indent-coef) * 2);}
+
+pre {font-size: var(--base-font-size); line-height: none; margin: 18px 18px; padding: 18px 18px;}
+pre {background-color: #000d11; color: #e3e3e3;}
+
+table {font-size: var(--base-font-size); line-height: none; margin: 0px 0px; padding: 6px 6px 6px calc(var(--base-font-size) * var(--indent-coef) * 6);}

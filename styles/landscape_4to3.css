@@ -21,6 +21,14 @@ A4の短辺(210mm)は96dpiで794px
 section{width: 1059px;  height: 794px;}
 
 
+/* ベースフォントサイズを指定 */
+:root {
+    --base-font-size: 20px;
+    --indent-coef: 0.6;
+    --fontsize-coef: 0.2;
+}
+
+
 /* スライドの背景について */
-/* @import '_bg_naruseyohei'; */
-@import '_bg_spyder';
+@import '_bg_naruseyohei';
+/* @import '_bg_spyder'; */

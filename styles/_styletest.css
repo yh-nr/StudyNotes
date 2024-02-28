@@ -1,14 +1,14 @@
 /* @theme _styletest */
 
 @import 'default';
-@import '_base_naru01';
+@import '_base_naru02';
 
 
 /* ページサイズについて
 A4の短辺(210mm)は96dpiで794px
 短辺を794pxに固定して他のページサイズを設定 */
 /* A4 portrait */
-section{width: 794px;  height: 1123px;}
+/* section{width: 794px;  height: 1123px;} */
 /* 16:9 portrait */
 /* section{width: 794px;  height: 1412px;} */
 /* 4:3 portrait */
@@ -18,9 +18,17 @@ section{width: 794px;  height: 1123px;}
 /* 9:16 landscape */
 /* section{width: 1412px;  height: 794px;} */
 /* 3:4 landscape */
-/* section{width: 1059px;  height: 794px;} */
+section{width: 1059px;  height: 794px;}
+
+
+/* ベースフォントサイズを指定 */
+:root {
+    --base-font-size: 32px;
+    --indent-coef: 0.4;
+    --fontsize-coef: 0.12;
+}
 
 
 /* スライドの背景について */
-/* @import '_bg_naruseyohei'; */
-@import '_bg_spyder';
+@import '_bg_naruseyohei';
+/* @import '_bg_spyder'; */
