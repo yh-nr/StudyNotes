@@ -1,0 +1,34 @@
+/* @theme Marpでアウトプット量産 */
+
+@import 'default';
+@import '_base_naru02';
+
+
+/* ページサイズについて
+A4の短辺(210mm)は96dpiで794px
+短辺を794pxに固定して他のページサイズを設定 */
+/* A4 portrait */
+/* section{width: 794px;  height: 1123px;} */
+/* 16:9 portrait */
+/* section{width: 794px;  height: 1412px;} */
+/* 4:3 portrait */
+/* section{width: 794px;  height: 1059px;} */
+/* A4 landscape */
+/* section{width: 1123px;  height: 794px;} */
+/* 9:16 landscape */
+section{width: 1412px;  height: 794px;}
+/* 3:4 landscape */
+/* section{width: 1059px;  height: 794px;} */
+
+
+/* ベースフォントサイズを指定 */
+:root {
+    --base-font-size: 30px;
+    --indent-coef: 0.4;
+    --fontsize-coef: 0.14;
+}
+
+
+/* スライドの背景について */
+@import '_bg_naruseyohei';
+/* @import '_bg_spyder'; */
