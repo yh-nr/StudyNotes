@@ -47,7 +47,7 @@ jobs:
           -H "Authorization: Bearer $LINE_TOKEN" \
           -F "message=$MESSAGE"
 
-          html_content="<html><body>$MESSAGE</body></html>"
+          html_content="<html><body>$FILES_WITH_URLS</body></html>"
           echo "$html_content" > ./output2/index.html
 
       - uses: actions/upload-pages-artifact@v1
