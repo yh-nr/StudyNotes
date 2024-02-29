@@ -37,8 +37,15 @@ jobs:
           PAGE_URL="https://${{github.repository_owner}}.github.io/${REPOSITORY_NAME}/"
           FILES=$(find ./output2 \( -name "*.html" -or -name "*.pdf" \) -type f | sort | sed 's|./output2/||g' | while read file; do echo "<div class='docs_link'><a href=\"${PAGE_URL}${file// /%20}\">${file// /%20}</a></div> "; done)
           FILES_WITH_URLS=$(echo "<div>Commit message: 「${{ github.event.head_commit.message }}」</div><div>$FILES</div>")
-          # sedを使用してHTMLファイル内の特定の文字列を置き換える
-          sed -i 's#[[REPLACE_ME]]#'"$FILES_WITH_URLS"'#g' ./output2/index.html
+
+          # FILES_WITH_URLS変数の内容を一時ファイルに書き出す
+          echo "$FILES_WITH_URLS" > temp_file_for_replacement.txt
+          # Perlを使用して、[[REPLACE_ME]]を一時ファイルの内容で置き換える
+          perl -i -pe 'BEGIN{local $/; open my $fh, "<", "temp_file_for_replacement.txt"; $replacement = join("", <$fh>); close $fh;} s#\[\[REPLACE_ME\]\]#$replacement#es' ./output2/index.html
+          # 一時ファイルを削除
+          rm temp_file_for_replacement.txt
+
+
 
           MESSAGE=$(echo -e "\n◆以下のファイルがデプロイされました。\n Commit message: 「${{ github.event.head_commit.message }}」\n 下記URLからご確認下さい。 \n $PAGE_URL")
           curl -X POST https://notify-api.line.me/api/notify \
