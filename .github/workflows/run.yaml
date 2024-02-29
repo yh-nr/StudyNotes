@@ -38,7 +38,7 @@ jobs:
           FILES=$(find ./output2 \( -name "*.html" -or -name "*.pdf" \) -type f | sort | sed 's|./output2/||g' | while read file; do echo "<div class='docs_link'><a href=\"${PAGE_URL}${file// /%20}\">${file// /%20}</a></div> "; done)
           FILES_WITH_URLS=$(echo -e "<div>Commit message: 「${{ github.event.head_commit.message }}」</div>\n<div>$FILES</div>")
           # sedを使用してHTMLファイル内の特定の文字列を置き換える
-          sed -i 's/[[REPLACE_ME]]/'"$FILES_WITH_URLS"'/g' ./output2/index.html
+          sed -i 's#[[REPLACE_ME]]#'"$FILES_WITH_URLS"'#g' ./output2/index.html
 
           MESSAGE=$(echo -e "\n◆以下のファイルがデプロイされました。\n Commit message: 「${{ github.event.head_commit.message }}」\n 下記URLからご確認下さい。 \n $PAGE_URL")
           curl -X POST https://notify-api.line.me/api/notify \
