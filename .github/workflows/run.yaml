@@ -41,7 +41,7 @@ jobs:
 
           PAGE_URL="https://${{github.repository_owner}}.github.io/${REPOSITORY_NAME}/"
 
-          FILES=$(find ./output2 \( -name "*.html" -or -name "*.pdf" \) -type f | sort | sed 's|./output2/||g' | while read file; do echo "<br><a href=\"${PAGE_URL}${file// /%20}\">${PAGE_URL}${file// /%20}</a> "; done | tr '\n' '%'  | sed 's/%/%/g')
+          FILES=$(find ./output2 \( -name "*.html" -or -name "*.pdf" \) -type f | sort | sed 's|./output2/||g' | while read file; do echo "<br><br><a href=\"${PAGE_URL}${file// /%20}\">${file// /%20}</a> "; done | tr '\n' '%'  | sed 's/%/%/g')
 
           FILES_WITH_URLS=$(echo " %　%◆以下のファイルがデプロイされました。%${{ github.event.head_commit.message }}%$FILES" | sed 's/%/\n/g')
 
