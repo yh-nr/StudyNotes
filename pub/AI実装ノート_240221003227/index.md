@@ -41,3 +41,5 @@ https://github.com/oreilly-japan/deep-learning-from-scratch)[②](https://github
       - MobileNet
       - EfficientNet
       - DenseNet
+
+![alt text](images/image4_index-1.png)
