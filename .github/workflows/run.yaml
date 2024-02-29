@@ -35,8 +35,10 @@ jobs:
         run: |
           REPOSITORY_NAME=$(echo ${{ github.repository }} | cut -d'/' -f2)
           PAGE_URL="https://${{github.repository_owner}}.github.io/${REPOSITORY_NAME}/"
+          COMMIT_DATE=$(git log -1 --format=%cd)
+
           FILES=$(find ./output2 \( -name "*.html" -or -name "*.pdf" \) -type f | sort | sed 's|./output2/||g' | while read file; do echo "<div class='docs_link'><a href=\"${PAGE_URL}${file// /%20}\">${file// /%20}</a></div> "; done)
-          FILES_WITH_URLS=$(echo "<div>Commit message: 「${{ github.event.head_commit.message }}」</div><div>$FILES</div>")
+          FILES_WITH_URLS=$(echo "<div>Commit message: 「${{ github.event.head_commit.message }}」</div><div>$COMMIT_DATE</div><div>$FILES</div>")
 
           # FILES_WITH_URLS変数の内容を一時ファイルに書き出す
           echo "$FILES_WITH_URLS" > temp_file_for_replacement.txt
@@ -47,7 +49,7 @@ jobs:
 
 
 
-          MESSAGE=$(echo -e "\n◆以下のファイルがデプロイされました。\n Commit message: 「${{ github.event.head_commit.message }}」\n 下記URLからご確認下さい。 \n $PAGE_URL")
+          MESSAGE=$(echo -e "\n◆以下のファイルがデプロイされました。\n Commit message: 「${{ github.event.head_commit.message }}」\n $COMMIT_DATE \n 下記URLからご確認下さい。 \n $PAGE_URL")
           curl -X POST https://notify-api.line.me/api/notify \
           -H "Authorization: Bearer $LINE_TOKEN" \
           -F "message=$MESSAGE"
