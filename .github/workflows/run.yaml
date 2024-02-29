@@ -52,7 +52,7 @@ jobs:
 
 
 
-          MESSAGE=$(echo -e "\n◆以下のファイルがデプロイされました。\n Commit message: 「${{ github.event.head_commit.message }}」\n $COMMIT_DATE \n\n 下記URLからご確認下さい。 \n $PAGE_URL")
+          MESSAGE=$(echo -e " \n ◆以下のファイルがデプロイされました。\n Commit message: 「${{ github.event.head_commit.message }}」\n $COMMIT_DATE \n\n 下記URLからご確認下さい。 \n $PAGE_URL")
           curl -X POST https://notify-api.line.me/api/notify \
           -H "Authorization: Bearer $LINE_TOKEN" \
           -F "message=$MESSAGE"
