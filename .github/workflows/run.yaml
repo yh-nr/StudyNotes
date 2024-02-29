@@ -39,15 +39,15 @@ jobs:
           REPOSITORY_NAME=$(echo ${{ github.repository }} | cut -d'/' -f2)
           PAGE_URL="https://${{github.repository_owner}}.github.io/${REPOSITORY_NAME}/"
           FILES=$(find ./output2 \( -name "*.html" -or -name "*.pdf" \) -type f | sort | sed 's|./output2/||g' | while read file; do echo "<div class='docs_link'><a href=\"${PAGE_URL}${file// /%20}\">${file// /%20}</a></div> "; done)
-          FILES_WITH_URLS=$(echo " <div>◆以下のファイルがデプロイされました。</div><div>${{ github.event.head_commit.message }}</div><div>$FILES</div>")
+          FILES_WITH_URLS=$(echo " <div>◆以下のファイルがデプロイされました。</div><div>Commit message: 「${{ github.event.head_commit.message }}」</div><div>$FILES</div>")
 
 
-          MESSAGE=$FILES_WITH_URLS
+          MESSAGE=$(echo "◆以下のファイルがデプロイされました。\n Commit message: 「${{ github.event.head_commit.message }}」\n 下記URLからご確認下さい。 \n $PAGE_URL")
           curl -X POST https://notify-api.line.me/api/notify \
           -H "Authorization: Bearer $LINE_TOKEN" \
           -F "message=$MESSAGE"
 
-          html_content="<html>$MESSAGE</html>"
+          html_content="<html><body>$MESSAGE</body></html>"
           echo "$html_content" > ./output2/index.html
 
       - uses: actions/upload-pages-artifact@v1
