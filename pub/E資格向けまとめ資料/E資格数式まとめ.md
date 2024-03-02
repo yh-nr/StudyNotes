@@ -1,13 +1,7 @@
 ---
 marp: true
 headingDivider: 2
-# theme: portrait_A4
-# theme: portrait_4to3
-theme: portrait_16to9
-# theme: landscape_A4
-# theme: landscape_4to3
-# theme: landscape_16to9
-# theme: _styletest
+theme: E資格数式まとめ
 paginate: true
 math: katex # Latexを書けるよう設定
 ---
@@ -205,13 +199,16 @@ $$\tilde H(p,q)=-\frac{1}{n}\sum_{i=1}^n \log q(x_i;\theta)$$
 ## バイアス・バリアンス・ノイズ
 <!-- _header: 機械学習の基礎 -->
 
-$$\large\mathbb{E}(L) = \int\{y(x)-h(x)\}^2p(x)dx +\iint\{h(x)-t\}^2p(x,t)dxdt$$
+$$\mathbb{E}(L) = \int\{y(x)-h(x)\}^2p(x)dx +\iint\{h(x)-t\}^2p(x,t)dxdt$$
 
-バイアス：$\large\int\{\mathbb{E}_D[y(x;D)] - h(x)\}^2p(x)dx$
+バイアス：
+$\int\{\mathbb{E}_D[y(x;D)] - h(x)\}^2p(x)dx$
 
-バリアンス：$\large\int\mathbb{E}_D[\{y(x;D) - \mathbb{E}_D[y(x;D)]\}^2p(x)dx$
+バリアンス：
+$\small\int\mathbb{E}_D[\{y(x;D) - \mathbb{E}_D[y(x;D)]\}^2p(x)dx$
 
-ノイズ：$\iint\{h(x) - t\}^2p(x,t)dxdt$
+ノイズ：
+$\iint\{h(x) - t\}^2p(x,t)dxdt$
 
 ##### ◆ポイント・各要素の意味など
 -

@@ -42,4 +42,18 @@ https://github.com/oreilly-japan/deep-learning-from-scratch)[②](https://github
       - EfficientNet
       - DenseNet
 
-![alt text](images/image4_index-1.png)
+## ゼロつく2章
+
+#### パーセプトロン
+
+- パーセプトロン
+- 人口ニューロン
+- 単純パーセプトロン
+
+$$
+y =
+\begin{cases}
+0 & (w_1x_1 + w_2x_2 \le \theta) \\
+1 & (w_1x_1 + w_2x_2 > \theta) \\
+\end{cases}
+$$

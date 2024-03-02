@@ -62,4 +62,4 @@ table {font-size: var(--base-font-size); line-height: none; margin: 0px 0px; pad
 
 /* .two-column-viewクラスを持つ要素に適用されるスタイル */
 section .twocolumnview {display: flex;}
-section .twocolumnview > * {flex: 1; margin: 15px 30px;}
+section .twocolumnview > * {flex: 2; margin: 15px 30px;}
