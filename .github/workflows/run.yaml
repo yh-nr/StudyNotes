@@ -42,7 +42,7 @@ jobs:
           LINE_TOKEN: ${{ secrets.SECRET_LINE_NOTIFY_API_TOKEN }} # LINE NotifyのアクセストークンをGitHub Secretsから取得
         run: |
           REPOSITORY_NAME=$(echo ${{ github.repository }} | cut -d'/' -f2)
-          PAGE_URL="https://${{github.repository_owner}}.github.io/${REPOSITORY_NAME}/m2d47dtw3io3/"
+          PAGE_URL="https://${{github.repository_owner}}.github.io/${REPOSITORY_NAME}/"
           COMMIT_DATE=$(git log -1 --format=%cd --date=format:"%m/%d(%a) %H:%M:%S")
 
 
@@ -62,7 +62,7 @@ jobs:
           rm temp_file_for_replacement.txt
 
           #Line通知用のメッセージ作成
-          MESSAGE=$(echo -e " \n ◆以下のファイルがデプロイされました。\n Commit message: 「${{ github.event.head_commit.message }}」\n $COMMIT_DATE \n\n 下記URLからご確認下さい。 \n $PAGE_URL")
+          MESSAGE=$(echo -e " \n ◆以下のファイルがデプロイされました。\n Commit message: 「${{ github.event.head_commit.message }}」\n $COMMIT_DATE \n\n 下記URLからご確認下さい。 \n $PAGE_URL\m2d47dtw3io3\")
 
           # cURLでLine通知をリクエスト
           curl -X POST https://notify-api.line.me/api/notify \
