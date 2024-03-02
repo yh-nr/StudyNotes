@@ -35,7 +35,7 @@ jobs:
           name: marp_output
           path: ./output2
 
-      URL
+      # 生成したファイルのリストをindex.htmlにまとめる
       - name: make index and line notify
         id: generate_file_urls
         env:
