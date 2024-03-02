@@ -1,12 +1,17 @@
-name: Convert Markdown into PDF
+# プッシュしたらpubディレクトリ内のmdファイルをhtmlとpdfに変換する。
+# 変換したファイルはgithub pagesで公開する。
+name: Convert .md into .html .pdf
 on: [push]
 
 jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
+      # チェックアウトリポジトリ内のファイルが利用できるようになる。
       - uses: actions/checkout@v4
 
+      # imagesフォルダを指定した出力フォルダにコピー
+      # この出力フォルダがあとでgithub pagesのルートになる。
       - name: Copy images from pub/*/images to output2
         run: |
           while IFS= read -r folder; do
@@ -15,12 +20,15 @@ jobs:
             cp -r "$folder"/* "output2/$base_folder/images/"
           done < <(find pub -type d -name images)
 
-      - name: Convert Markdown into PDF
+      # marp-cliの処理にKoharaKazuyaさんが公開しているActionを利用
+      # この部分も自分で組みたい
+      # 設定ファイル.marprc-ci.ymlでディレクトリを指定している
+      - name: Convert .md into .html .pdf
         uses: KoharaKazuya/marp-cli-action@v2
         with:
           config-file: ./.marprc-ci.yml
 
-
+      # 成果物を指定した出力フォルダに保存する
       - name: Save outputs
         uses: actions/upload-artifact@v4
         with:
@@ -44,25 +52,28 @@ jobs:
 
           # FILES_WITH_URLS変数の内容を一時ファイルに書き出す
           echo "$FILES_WITH_URLS" > temp_file_for_replacement.txt
+
           # Perlを使用して、[[REPLACE_ME]]を一時ファイルの内容で置き換える
           perl -i -pe 'BEGIN{local $/; open my $fh, "<", "temp_file_for_replacement.txt"; $replacement = join("", <$fh>); close $fh;} s#\[\[REPLACE_ME\]\]#$replacement#es' ./index.html
-          cp ./index.html ./output2/index.html
+          cp ./index.html ./output2/m2d47dtw3io3/index.html
 
           # 一時ファイルを削除
           rm temp_file_for_replacement.txt
 
-
-
+          #Line通知用のメッセージ作成
           MESSAGE=$(echo -e " \n ◆以下のファイルがデプロイされました。\n Commit message: 「${{ github.event.head_commit.message }}」\n $COMMIT_DATE \n\n 下記URLからご確認下さい。 \n $PAGE_URL")
+
+          # cURLでLine通知をリクエスト
           curl -X POST https://notify-api.line.me/api/notify \
           -H "Authorization: Bearer $LINE_TOKEN" \
           -F "message=$MESSAGE"
 
+      # output2
       - uses: actions/upload-pages-artifact@v1
         with:
           path: ./output2
 
-
+  # github-pagesをデプロイする
   deploy:
     needs: publish
     permissions:
