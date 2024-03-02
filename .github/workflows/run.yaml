@@ -55,6 +55,7 @@ jobs:
 
           # Perlを使用して、[[REPLACE_ME]]を一時ファイルの内容で置き換える
           perl -i -pe 'BEGIN{local $/; open my $fh, "<", "temp_file_for_replacement.txt"; $replacement = join("", <$fh>); close $fh;} s#\[\[REPLACE_ME\]\]#$replacement#es' ./index.html
+          mkdir ./output2/m2d47dtw3io3/
           cp ./index.html ./output2/m2d47dtw3io3/index.html
 
           # 一時ファイルを削除
