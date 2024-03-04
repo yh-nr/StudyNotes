@@ -30,6 +30,7 @@ strong{color: rgb(255, 0, 0) ;}
 /* タイトルスライドの設定 */
 section.title {background-image: initial; background-color: #120b6b;color: #333;}
 section.title h1{background-color: #f0f0f0; color: #120b6b;}
+section.title h3{background-color: initial; color: #f0f0f0; position: absolute; left: 0px; top: calc(50% + 80px);padding: 0px 50px; }
 section.title footer{display: none;}
 
 
