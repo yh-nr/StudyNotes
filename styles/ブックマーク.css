@@ -22,17 +22,17 @@ section{width: 794px;  height: 1412px;}
 
 
 /* H1見出しは１ページ使って表示する */
-h1 {position: absolute; left: 0px; top: 50%; transform: translateY(-50%); width: 100%; height: 160px;}
+h1, h2 {position: absolute; left: 0px; top: 50%; transform: translateY(-50%); width: 100%; height: 160px;}
 
 
-h1 {color: #ffffff; background-color: #120b6b;}
-h3 {color: initial; background-color: initial;}
-h1 {font-size: 60px; line-height: 160px; padding: 0px 50px;}
-h2 {font-size: calc(var(--base-font-size) * (1 + var(--fontsize-coef) * 4)); border-radius: 7.5px; line-height: none; margin: 0px 0px 12px 0px; padding: 8px calc(var(--base-font-size) * var(--indent-coef) * 2)}
-/* h3 {font-size: calc(var(--base-font-size) * (1 + var(--fontsize-coef) * 3)); border-radius: 7.5px; line-height: none; margin: 12px 0px 12px 0px; padding: 8px calc(var(--base-font-size) * var(--indent-coef) * 2)} */
+h1, h2 {color: #ffffff; background-color: #120b6b;}
+/* h3 {color: initial; background-color: initial;} */
+h1,h2 {font-size: 60px; line-height: 160px; padding: 0px 50px;}
+/* h2 {font-size: calc(var(--base-font-size) * (1 + var(--fontsize-coef) * 4)); border-radius: 7.5px; line-height: none; margin: 0px 0px 12px 0px; padding: 8px calc(var(--base-font-size) * var(--indent-coef) * 2)} */
+h3 {font-size: calc(var(--base-font-size) * (1 + var(--fontsize-coef) * 3)); border-radius: 7.5px; line-height: none; margin: 12px 0px 12px 0px; padding: 8px calc(var(--base-font-size) * var(--indent-coef) * 2)}
 
 
-h3, h4, h5, h6 {color: #120b6b}
+h4, h5, h6 {color: #120b6b}
 /* h2 {font-size: calc(var(--base-font-size) * (1 + var(--fontsize-coef) * 4)); line-height: none; margin: 0px 0px; padding: 6px 6px 6px calc(var(--base-font-size) * var(--indent-coef) * 2);} */
 h3 {font-size: calc(var(--base-font-size) * (1 + var(--fontsize-coef) * 3)); line-height: none; margin: 0px 0px; padding: 6px 6px 6px calc(var(--base-font-size) * var(--indent-coef) * 4);}
 h4 {font-size: calc(var(--base-font-size) * (1 + var(--fontsize-coef) * 2)); line-height: none; margin: 0px 0px; padding: 6px 6px 6px calc(var(--base-font-size) * var(--indent-coef) * 6);}
