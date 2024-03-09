@@ -1,7 +1,7 @@
 ---
 marp: true
-theme: portrait_16to9
-headingDivider: 3
+theme: ブックマーク
+headingDivider: 2
 paginate: true
 math: katex
 footer: ブックマーク

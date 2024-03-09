@@ -1,0 +1,45 @@
+/* @theme ブックマーク */
+
+@import 'default';
+@import '_base_naru02';
+
+
+/* ページサイズについて*/
+section{width: 794px;  height: 1412px;}
+
+
+/* ベースフォントサイズを指定 */
+:root {
+    --base-font-size: 28px;
+    --indent-coef: 0.4;
+    --fontsize-coef: 0.14;
+}
+
+
+/* スライドの背景について */
+@import '_bg_naruseyohei';
+/* @import '_bg_spyder'; */
+
+
+/* H1見出しは１ページ使って表示する */
+h1 {position: absolute; left: 0px; top: 50%; transform: translateY(-50%); width: 100%; height: 160px;}
+
+
+h1 {color: #ffffff; background-color: #120b6b;}
+h3 {color: initial; background-color: initial;}
+h1 {font-size: 60px; line-height: 160px; padding: 0px 50px;}
+h2 {font-size: calc(var(--base-font-size) * (1 + var(--fontsize-coef) * 4)); border-radius: 7.5px; line-height: none; margin: 0px 0px 12px 0px; padding: 8px calc(var(--base-font-size) * var(--indent-coef) * 2)}
+/* h3 {font-size: calc(var(--base-font-size) * (1 + var(--fontsize-coef) * 3)); border-radius: 7.5px; line-height: none; margin: 12px 0px 12px 0px; padding: 8px calc(var(--base-font-size) * var(--indent-coef) * 2)} */
+
+
+h3, h4, h5, h6 {color: #120b6b}
+/* h2 {font-size: calc(var(--base-font-size) * (1 + var(--fontsize-coef) * 4)); line-height: none; margin: 0px 0px; padding: 6px 6px 6px calc(var(--base-font-size) * var(--indent-coef) * 2);} */
+h3 {font-size: calc(var(--base-font-size) * (1 + var(--fontsize-coef) * 3)); line-height: none; margin: 0px 0px; padding: 6px 6px 6px calc(var(--base-font-size) * var(--indent-coef) * 4);}
+h4 {font-size: calc(var(--base-font-size) * (1 + var(--fontsize-coef) * 2)); line-height: none; margin: 0px 0px; padding: 6px 6px 6px calc(var(--base-font-size) * var(--indent-coef) * 6);}
+h5 {font-size: calc(var(--base-font-size) * (1 + var(--fontsize-coef) * 1)); line-height: none; margin: 0px 0px; padding: 6px 6px 6px calc(var(--base-font-size) * var(--indent-coef) * 8);}
+h6 {font-size: var(--base-font-size); line-height: none; margin: 0px 0px; padding: 6px 6px 6px calc(var(--base-font-size) * var(--indent-coef) * 10);}
+
+
+p  {font-size: var(--base-font-size); line-height: none; margin: 0px 0px; padding: 6px 6px 6px calc(var(--base-font-size) * var(--indent-coef) * 12);}
+ul, ol {font-size: var(--base-font-size); line-height: none; margin: 0px 0px; padding: 6px 6px 6px calc(var(--base-font-size) * var(--indent-coef) * 12);}
+ul ul,ol ol {font-size: var(--base-font-size); line-height: none; margin: 0px 0px; padding: 6px 6px 6px calc(var(--base-font-size) * var(--indent-coef) * 2);}
