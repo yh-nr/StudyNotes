@@ -1,11 +1,9 @@
 ---
 marp: true
 theme: ブックマーク
-headingDivider: 2
 paginate: true
 math: katex
 footer: ブックマーク
 style: |
   section {overflow-y: auto;max-height: 100%;}
 ---
-

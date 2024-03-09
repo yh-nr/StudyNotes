@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup, Comment
 # 半角スペースの連続後に#があるパターンにマッチし、置換する関数
 def replace_spaces(match):
     spaces = match.group(0)
-    replacement = "\n" + "#" * (len(spaces) - 3)
+    replacement = "\n---\n\n" + "#" * (len(spaces) - 3)
     return replacement
 
 
@@ -35,13 +35,11 @@ def html_to_markdown(html_file_path, output_md_path, input_md_path):
     for tag in soup.find_all(["dt", "dl", "p"]):
         tag.unwrap()
 
-    # ファイルを開いて内容を読み込む
-    with open(input_md_path, "r", encoding="utf-8") as file:
-        markdown_content = file.read()
+    markdown_content = ""
 
     for element in soup.contents:
         if element.name == "h3":
-            markdown_content += "#" + " " + element.get_text().strip()
+            markdown_content += "#" + " " + element.get_text().strip() + "\n"
         elif element.name == "a":
             # リンクをマークダウン形式に変換
             link_text = element.get_text()
@@ -64,11 +62,15 @@ def html_to_markdown(html_file_path, output_md_path, input_md_path):
     # 文字列を改行で分割してリストにする
     lines = markdown_content3.split("\n")
     non_blank_lines = [line for line in lines if line.strip()]
-    markdown_content4 = "\n".join(non_blank_lines)
+    markdown_content4 = "\n".join(non_blank_lines[3:])
+
+    # ファイルを開いて内容を読み込む
+    with open(input_md_path, "r", encoding="utf-8") as file:
+        markdown_content_header = file.read()
 
     # MDファイルとして出力
     with open(output_md_path, "w", encoding="utf-8") as md_file:
-        md_file.write(markdown_content4)
+        md_file.write(markdown_content_header + "\n" + markdown_content4)
 
 
 # 使用例
