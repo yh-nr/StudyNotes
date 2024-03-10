@@ -1,12 +1,7 @@
 ---
 marp: true
 headingDivider: 2
-# theme: portrait_A4
-theme: portrait_4to3
-# theme: portrait_16to9
-# theme: landscape_A4
-# theme: landscape_4to3
-# theme: landscape_16to9
+theme: landscape_4to3
 paginate: true
 math: katex # Latexを書けるよう設定
 ---
@@ -24,3 +19,15 @@ math: katex # Latexを書けるよう設定
 - スクレイピングのリスク
 - スクレイピングに使われるツール
 - 営業リスト作成プログラムの解説
+
+## トラブルシューティング
+
+#### googleドライブのマウント辺りの処理が終わらない
+
+## スクレイピングとは
+
+## スクレイピングのリスク
+
+## スクレイピングに使われるツール
+
+## 営業リスト作成プログラムの解説
