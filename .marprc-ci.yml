@@ -6,3 +6,4 @@ output: ./output2
 pdf: true
 html: true
 htmlAsArray: false
+pdf-outlines.headings: true
