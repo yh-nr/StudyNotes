@@ -65,10 +65,11 @@ def html_to_markdown(html_file_path, output_md_path, input_md_path):
     lines = markdown_content3.split("\n")
     non_blank_lines = [line for line in lines if line.strip()]
     toc_lines = []
-    for line in non_blank_lines:
+
+    for index, line in enumerate(non_blank_lines, start=1):
         if line.startswith("## "):
             toc_item = line.replace("## ", "")
-            toc_lines.append(f"- [{toc_item}](#{toc_item.replace(' ', '-').lower()})")
+            toc_lines.append(f"- [{toc_item}](#{index})")
 
     toc_content = "\n".join(toc_lines)
     markdown_content4 = "\n".join(non_blank_lines[3:])
