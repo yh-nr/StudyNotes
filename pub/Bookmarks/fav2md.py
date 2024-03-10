@@ -1,4 +1,5 @@
 import re
+from datetime import datetime
 
 from bs4 import BeautifulSoup, Comment
 
@@ -17,9 +18,10 @@ def html_to_markdown(html_file_path, output_md_path, input_md_path):
     lines = html_content.split("\n")
     html_content = "\n".join(lines[1:])
 
-    html_content = (
-        html_content.replace("    ", "$ ").replace("$ $", "$$").replace("$ $", "$$")
-    )
+    # 4つのスペースを "$ " に置換する
+    html_content = html_content.replace("    ", "$ ")
+    while html_content.count("$ $"):
+        html_content = html_content.replace("$ $", "$$")
 
     soup = BeautifulSoup(html_content, "html.parser")
 
@@ -62,6 +64,13 @@ def html_to_markdown(html_file_path, output_md_path, input_md_path):
     # 文字列を改行で分割してリストにする
     lines = markdown_content3.split("\n")
     non_blank_lines = [line for line in lines if line.strip()]
+    toc_lines = []
+    for line in non_blank_lines:
+        if line.startswith("## "):
+            toc_item = line.replace("## ", "")
+            toc_lines.append(f"- [{toc_item}](#{toc_item.replace(' ', '-').lower()})")
+
+    toc_content = "\n".join(toc_lines)
     markdown_content4 = "\n".join(non_blank_lines[3:])
 
     # ファイルを開いて内容を読み込む
@@ -70,11 +79,18 @@ def html_to_markdown(html_file_path, output_md_path, input_md_path):
 
     # MDファイルとして出力
     with open(output_md_path, "w", encoding="utf-8") as md_file:
-        md_file.write(markdown_content_header + "\n" + markdown_content4)
+        md_file.write(
+            markdown_content_header + "\n" + toc_content + "\n\n" + markdown_content4
+        )
 
+
+# 現在の日付を取得
+current_date = datetime.now()
+# フォーマットを指定して日付文字列を生成
+date_string = current_date.strftime("%Y_%m_%d")
 
 # 使用例
-html_file_path = "input.html"  # 入力HTMLファイルのパス
+html_file_path = f"bookmarks_{date_string}.html"  # 入力HTMLファイルのパス
 output_md_path = "bookmarks.md"  # 出力するMarkdownファイルのパス
 input_md_path = "inputmd.txt"
 html_to_markdown(html_file_path, output_md_path, input_md_path)
