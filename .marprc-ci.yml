@@ -5,3 +5,4 @@ inputDir: ./pub
 output: ./output2
 pdf: true
 html: true
+bespoke.osc: false
