@@ -1,0 +1,69 @@
+/* @theme landscape_4to3_presentation */
+
+@import 'default';
+
+
+section
+{
+  width: 284mm;
+  height: 213mm;
+  justify-content: start;
+  margin: 1px;
+  padding: 90px 36px 50px 36px;
+  border: 0px;
+  background-color:#dee4ee;
+  line-height: 105%;
+}
+
+
+
+
+section h2 {
+  position: absolute;
+  top:0px;
+  left: 0px;
+  width: 100%;
+}
+
+section h1 {
+  position: absolute; /* 絶対位置を指定 */
+  left: 0px; /* 親要素（section）の左端からの位置 */
+  top: 50%; /* 親要素の上端から50%の位置 */
+  transform: translateY(-50%); /* Y軸に沿って-50%移動して中央に配置 */
+  width: 100%;
+  height: 160px; /* 具体的な高さを指定 */
+}
+
+
+
+
+section h1 strong{color: rgb(255, 0, 0) ;}
+section h2 strong{color: rgb(255, 0, 0) ;}
+section h3 strong{color: rgb(255, 0, 0) ;}
+section strong{color: purple}
+
+section.title {background-color: #120b6b;color: #333;}
+section.title h1{background-color: #f0f0f0; color: #120b6b;}
+section.title footer{display: none;}
+
+
+
+
+h1, h2 {color: #ffffff; background-color: #120b6b;}
+h1 {font-size: 60px; line-height: 160px; padding: 0px 50px;}
+h2 {font-size: 36px; line-height: none; margin: 0px 0px; padding: 18px 18px}
+
+h3, h4, h5, h6 {color: #120b6b}
+
+h3 {font-size: 36px; line-height: none; margin: 0px 0px; padding: 0px 0px;}
+h4 {font-size: 32px; line-height: none; margin: 0px 0px; padding: 8px 27px;}
+h5 {font-size: 28px; line-height: none; margin: 0px 0px; padding: 7px 56px;}
+h6 {font-size: 24px; line-height: none; margin: 0px 0px; padding: 6px 81px;}
+
+p  {font-size: 24px; line-height: none; margin: 0px 0px; padding: 6px 81px;}
+ul, ol {font-size: 24px; line-height: none; margin: 0px 0px; padding: 6px 105px;}
+ul ul,ol ol {font-size: 24px; line-height: none; margin: 0px 0px; padding: 6px 24px;}
+
+pre {font-size: 24px; line-height: none; margin: 18px 18px; padding: 18px 18px;}
+pre {background-color: #000d11; color: #e3e3e3;}
+

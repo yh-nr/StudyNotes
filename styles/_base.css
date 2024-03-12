@@ -1,0 +1,98 @@
+/* @theme _base */
+
+@import "default";
+@import "_PSN_IMAGE";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
+
+section.lead h1 {
+    font-size: 80px;
+    margin: 0 auto 100px;
+    border: 0;
+    background-image: initial;
+}
+
+section.lead h2 {
+    font-size: 30px;
+    margin: 0 auto 100px;
+}
+
+section.lead {
+    justify-content: center;
+}
+
+section {
+    padding: 40px 60px;
+    font-family: 'Noto Sans JP', sans-serif;
+    flex-flow: column;
+    justify-content: start;
+
+    width: 1280px;
+    height: 720px;
+}
+
+section::after {
+    bottom: 6px;
+}
+
+:root {
+    background-color: rgb(246, 246, 246);
+}
+
+header,
+footer {
+    font-family: 'Noto Sans JP', sans-serif;
+    margin: 0;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    color: rgb(128, 128, 128);
+    font-size: 25px;
+}
+
+header {
+    top: 21px; left: initial; right: 21px;
+    justify-content: right;
+}
+
+footer {
+    bottom: 6px; left: 0;
+    justify-content: center;
+}
+
+section .my-code {
+    max-width: 200px;
+    height: 100px;
+}
+
+h1 {
+    border-bottom: none;
+    color: rgb(0, 15, 120);
+    font-size: 1.6em;
+    margin: 0 0 10px 0;
+    background-size: 100% 10%;
+    background-repeat: no-repeat;
+    background-position: bottom left;
+}
+
+h2 {
+    border-bottom: none;
+    font-size: 1.3em;
+}
+
+h3 {
+    font-size: 1.1em;
+}
+
+h4 {
+    font-size: 1.05em;
+}
+
+h5 {
+    font-size: 1em;
+}
+
+h6 {
+    font-size: 0.9em;
+}
+
