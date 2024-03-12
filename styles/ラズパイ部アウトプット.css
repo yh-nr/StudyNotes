@@ -36,3 +36,7 @@ section{width: 794px;  height: 1123px;}
 /* .two-column-viewクラスを持つ要素に適用されるスタイル */
 section .twocolumnview {display: flex;}
 section .twocolumnview > * {flex: 1; margin: 15px 30px;}
+
+
+
+

@@ -64,3 +64,16 @@ table {font-size: var(--base-font-size); line-height: none; margin: 0px 0px; pad
 /* .two-column-viewクラスを持つ要素に適用されるスタイル */
 section .twocolumnview {display: flex;}
 section .twocolumnview > * {flex: 2; margin: 15px 30px;}
+
+
+
+dl, dt, dd {font-size: var(--base-font-size); line-height: none; margin: 0px 0px; padding: 6px 6px 6px calc(var(--base-font-size) * var(--indent-coef) * 6);}
+
+
+dt {
+    float: left;
+}
+
+dd {
+    margin-left: 80px;
+}
