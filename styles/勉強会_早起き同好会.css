@@ -29,6 +29,14 @@ section{width: 1059px;  height: 794px;}
 }
 
 
+section.title h3{background-color: initial; color: #f0f0f0; position: absolute; left: 670px; top: calc(50% + 128px + 80px);padding: 0px 0px; }
+section.title h4{background-color: initial; color: #f0f0f0; position: absolute; left: 670px; top: calc(50% + 176px + 80px);padding: 0px 0px; }
+section.title h5{background-color: initial; color: #f0f0f0; position: absolute; left: 670px; top: calc(50% + 228px + 80px);padding: 0px 0px; }
+section.title h3{font-size: calc(var(--base-font-size) * (1 + var(--fontsize-coef) * 3)); margin: 0px 40px 12px 0px; border-radius: 0px}
+section.title h4{font-size: calc(var(--base-font-size) * (1 + var(--fontsize-coef) * 3)); margin: 0px 0px 12px 0px; border-radius: 0px}
+section.title h5{font-size: calc(var(--base-font-size) * (1 + var(--fontsize-coef) * 3)); margin: 0px 0px 12px 0px; border-radius: 0px}
+
+
 /* スライドの背景について */
 @import '_bg_hayaoki';
 /* @import '_bg_spyder'; */

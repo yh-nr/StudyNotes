@@ -9,6 +9,6 @@ section {
     background-image: var(--background-image);
     background-repeat: no-repeat;
     background-position: 36px calc(100% - 30px);
-    background-size: 120px;
+    background-size: 90px;
     background-color: #dee4ee;
 }
