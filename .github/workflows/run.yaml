@@ -24,8 +24,10 @@ jobs:
           else
             echo "::set-output name=result::false"
           fi
-          echo needs.check-condition.outputs.should-run
-
+      - name: Set environment variable
+          run: echo "my_output=some_value" >> $GITHUB_ENV
+      - name: Use environment variable
+          run: echo "The value of my_output is ${{ env.my_output }}"
 
 
   publish:
