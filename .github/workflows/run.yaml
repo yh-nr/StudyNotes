@@ -24,7 +24,7 @@ jobs:
           else
             echo "::set-output name=result::false"
           fi
-          echo "$result"
+          echo needs.check-condition.outputs.should-run
 
 
 
