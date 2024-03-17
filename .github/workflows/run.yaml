@@ -17,7 +17,7 @@ jobs:
         env:
           COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
         # Bash スクリプトで直接contains関数は使えないため、envを通して渡してgrepでチェック
-        run: |
+      - run: |
           echo "Commit message: $COMMIT_MESSAGE"
           if echo "$COMMIT_MESSAGE" | grep -q "publish"; then
             echo "::set-output name=result::true"
