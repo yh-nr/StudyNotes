@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Set output based on commit message
         id: condition-check
-        run: echo "Checking commit message..."
+        run: echo "Checking commit message...."
         # コミットメッセージが 'publish' を含むかどうかをチェックし、結果を出力に設定
         env:
           COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
