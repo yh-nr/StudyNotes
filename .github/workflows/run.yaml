@@ -3,8 +3,20 @@
 name: Convert .md into .html .pdf
 on: [push]
 
+
 jobs:
+  check-condition:
+    runs-on: ubuntu-latest
+    outputs:
+      should-run: ${{ steps.condition-check.outputs.result }}
+    steps:
+      - id: condition-check
+        run: echo "::set-output name=result::$( if contains(github.event.head_commit.message, 'publish'); then echo 'true'; else echo 'false'; fi )"
+
+
   publish:
+    needs: check-condition
+    if: needs.check-condition.outputs.should-run == 'true'
     runs-on: ubuntu-latest
     steps:
       # チェックアウトリポジトリ内のファイルが利用できるようになる。
