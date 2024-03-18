@@ -33,7 +33,7 @@ jobs:
 
   publish:
     needs: check-condition
-    if: ${{ needs.check-condition.outputs.my_output  == 'true'}}
+    # if: ${{ needs.check-condition.outputs.my_output  == 'true'}}
     runs-on: ubuntu-latest
     steps:
 
