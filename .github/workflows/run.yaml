@@ -17,16 +17,11 @@ jobs:
         id: set_outputs
         run: |
           echo "Commit message: $COMMIT_MESSAGE"
-          if echo "$COMMIT_MESSAGE" | grep -q "publish"; then
-            # echo "my_output=true" >> $GITHUB_ENV
+          if echo "$COMMIT_MESSAGE" | grep -q "pub"; then
             echo "my_output=true" >> $GITHUB_OUTPUT
           else
-            # echo "my_output=false" >> $GITHUB_ENV
             echo "my_output=false" >> $GITHUB_OUTPUT
           fi
-
-      - name: Use environment variable
-        run: echo "The value of my_output is ${{ env.my_output }} !!!"
 
   publish:
     needs: check-condition
