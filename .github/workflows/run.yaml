@@ -20,21 +20,20 @@ jobs:
         run: |
           echo "Commit message: $COMMIT_MESSAGE"
           if echo "$COMMIT_MESSAGE" | grep -q "publish"; then
-            echo "::set-output name=result::true"
+            echo "my_output=true" >> $GITHUB_ENV
           else
-            echo "::set-output name=result::false"
+            echo "my_output=false" >> $GITHUB_ENV
           fi
-      - name: Set environment variable
-        run: echo "my_output=some_value" >> $GITHUB_ENV
-      - name: Use environment variable
-        run: echo "The value of my_output is ${{ env.my_output }}"
-
 
   publish:
     needs: check-condition
     if: needs.check-condition.outputs.should-run == 'true'
     runs-on: ubuntu-latest
     steps:
+
+      - name: Use environment variable
+        run: echo "The value of my_output is ${{ env.my_output }}"
+
       # チェックアウトリポジトリ内のファイルが利用できるようになる。
       - uses: actions/checkout@v4
 
