@@ -25,7 +25,7 @@ jobs:
             echo "::set-output name=result::false"
           fi
           echo needs.check-condition.outputs.should-run
-
+          echo "cm_value=true" >> $GITHUB_OUTPUT
 
 
   publish:
