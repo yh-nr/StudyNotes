@@ -30,8 +30,6 @@ jobs:
       - name: Use environment variable
         run: echo "The value of my_output is ${{ env.my_output }}"
 
-
-
   publish:
     needs: check-condition
     if: ${{ needs.job1.outputs.my_output  == 'true'}}
