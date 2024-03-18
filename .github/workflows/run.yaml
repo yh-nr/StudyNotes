@@ -24,7 +24,7 @@ jobs:
           else
             echo "my_output=false" >> $GITHUB_ENV
           fi
-          echo "Commit message: $env.my_output"
+          echo "Commit message: ${{env.my_output}}"
 
   publish:
     needs: check-condition
@@ -33,7 +33,7 @@ jobs:
     steps:
 
       - name: Use environment variable
-        run: echo "The value of my_output is ${{ env.my_output }}"
+        run: echo "The value of my_output is $ {{ env.my_output }}"
 
       # チェックアウトリポジトリ内のファイルが利用できるようになる。
       - uses: actions/checkout@v4
