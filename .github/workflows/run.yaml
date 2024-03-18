@@ -27,7 +27,7 @@ jobs:
 
   publish:
     needs: check-condition
-    if: "${{ needs.job1.outputs.my_output }}" == 'true'
+    if: ${{ needs.job1.outputs.my_output  == 'true'}}
     runs-on: ubuntu-latest
     steps:
 
