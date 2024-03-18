@@ -25,7 +25,7 @@ jobs:
           else
             echo "my_output=false" >> $GITHUB_ENV
           fi
-          echo "Commit message: ${{env.my_output}}"
+          echo "Commit message: $my_output"
 
   publish:
     needs: check-condition
