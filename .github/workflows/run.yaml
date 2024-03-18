@@ -7,8 +7,6 @@ on: [push]
 jobs:
   check-condition:
     runs-on: ubuntu-latest
-    outputs:
-      should-run: ${{ steps.condition-check.outputs.result }}
     steps:
       - name: Set output based on commit message
         id: condition-check
@@ -27,7 +25,7 @@ jobs:
 
   publish:
     needs: check-condition
-    if: needs.check-condition.outputs.should-run == 'true'
+    if: ${{ env.my_output }}" == 'true'
     runs-on: ubuntu-latest
     steps:
 
