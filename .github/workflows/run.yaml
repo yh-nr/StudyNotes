@@ -25,9 +25,9 @@ jobs:
             echo "::set-output name=result::false"
           fi
       - name: Set environment variable
-          run: echo "my_output=some_value" >> $GITHUB_ENV
+        run: echo "my_output=some_value" >> $GITHUB_ENV
       - name: Use environment variable
-          run: echo "The value of my_output is ${{ env.my_output }}"
+        run: echo "The value of my_output is ${{ env.my_output }}"
 
 
   publish:
