@@ -34,9 +34,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-      - name: Use environment variable
-        run: echo "The value of my_output is ${{ needs.check-condition.outputs.my_output }}"
-
       # チェックアウトリポジトリ内のファイルが利用できるようになる。
       - uses: actions/checkout@v4
 
