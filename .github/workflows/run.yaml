@@ -7,6 +7,8 @@ on: [push]
 jobs:
   check-condition:
     runs-on: ubuntu-latest
+    outputs:
+      my_output: ${{ steps.set_output.outputs.my_value }}
     steps:
       - name: Set output based on commit message
         id: condition-check
