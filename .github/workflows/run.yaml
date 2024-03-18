@@ -21,8 +21,10 @@ jobs:
           echo "Commit message: $COMMIT_MESSAGE"
           if echo "$COMMIT_MESSAGE" | grep -q "publish"; then
             echo "my_output=true" >> $GITHUB_ENV
+            echo "my_output=true" >> $GITHUB_OUTPUT
           else
             echo "my_output=false" >> $GITHUB_ENV
+            echo "my_output=false" >> $GITHUB_OUTPUT
           fi
           echo "Commit message: $my_output"
 
