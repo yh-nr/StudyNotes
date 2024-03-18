@@ -8,7 +8,7 @@ jobs:
   check-condition:
     runs-on: ubuntu-latest
     outputs:
-      my_output: ${{ steps.set_output.outputs.my_output }}
+      my_output: ${{ steps.set_outputs.outputs.my_output }}
     steps:
       - name: Set output based on commit message
         id: condition-check
@@ -38,7 +38,7 @@ jobs:
     steps:
 
       - name: Use environment variable
-        run: echo "The value of my_output is $ {{ env.my_output }}"
+        run: echo "The value of my_output is $ {{ needs.check-condition.outputs.my_output }}"
 
       # チェックアウトリポジトリ内のファイルが利用できるようになる。
       - uses: actions/checkout@v4
