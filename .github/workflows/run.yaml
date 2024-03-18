@@ -27,7 +27,7 @@ jobs:
           echo "Commit message: $my_output"
 
       - name: Use environment variable
-        run: echo "The value of my_output is ${{ env.my_output }}"
+        run: echo "The value of my_output is ${{ env.my_output }} !!!"
 
   publish:
     needs: check-condition
