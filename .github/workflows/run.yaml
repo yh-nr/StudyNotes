@@ -11,12 +11,10 @@ jobs:
       my_output: ${{ steps.set_outputs.outputs.my_output }}
     steps:
       - name: Set output based on commit message
-        id: condition-check
-        run: echo "Checking commit message...."
-        # コミットメッセージが 'publish' を含むかどうかをチェックし、結果を出力に設定
-      - env:
+        env:
           COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
         # Bash スクリプトで直接contains関数は使えないため、envを通して渡してgrepでチェック
+        id: set_outputs
         run: |
           echo "Commit message: $COMMIT_MESSAGE"
           if echo "$COMMIT_MESSAGE" | grep -q "publish"; then
