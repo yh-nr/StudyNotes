@@ -8,7 +8,7 @@ jobs:
   check-condition:
     runs-on: ubuntu-latest
     outputs:
-      should-run: ${{ steps.condition-check.outputs.result }}
+      my_output: ${{ steps.set_output.outputs.my_value }}
     steps:
       - name: Set output based on commit message
         id: condition-check
@@ -20,19 +20,21 @@ jobs:
         run: |
           echo "Commit message: $COMMIT_MESSAGE"
           if echo "$COMMIT_MESSAGE" | grep -q "publish"; then
-            echo "::set-output name=result::true"
+            echo "my_output=true" >> $GITHUB_ENV
           else
-            echo "::set-output name=result::false"
+            echo "my_output=false" >> $GITHUB_ENV
           fi
-          echo needs.check-condition.outputs.should-run
-          echo "cm_value=true" >> $GITHUB_OUTPUT
-
+          echo "Commit message: ${{env.my_output}}"
 
   publish:
     needs: check-condition
-    if: needs.check-condition.outputs.should-run == 'true'
+    if: ${{ needs.job1.outputs.my_output  == 'true'}}
     runs-on: ubuntu-latest
     steps:
+
+      - name: Use environment variable
+        run: echo "The value of my_output is $ {{ env.my_output }}"
+
       # チェックアウトリポジトリ内のファイルが利用できるようになる。
       - uses: actions/checkout@v4
 
