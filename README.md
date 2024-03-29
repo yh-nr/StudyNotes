@@ -1,3 +1,11 @@
+---
+marp: true
+headingDivider: 2
+theme: やりたい事リスト
+paginate: true
+math: katex
+---
+
 # 学習記録
 
 - 勉強したことや、調査したことなどの記録用のリポジトリです。
